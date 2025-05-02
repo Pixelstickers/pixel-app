@@ -3,33 +3,29 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pixel Stickers</title>
+  <title>Stickers - Pixel</title>
   <style>
     body {
       margin: 0;
       font-family: 'Quicksand', sans-serif;
-      background-color: #fef6f0;
+      background-color: #fffaf5;
       color: #4a2e1c;
     }
+    
     header {
-      background: url('header_zorro.png') no-repeat center center;
+      background: url('header_zorro.png') no-repeat center top;
       background-size: cover;
-      padding: 120px 20px 80px;
+      padding: 180px 20px 100px;
       text-align: center;
       color: #fff;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    }
+
     nav {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 15px;
-      margin-top: 20px;
+      margin-top: 10px;
+      flex-wrap: wrap;
     }
     nav a {
       text-decoration: none;
@@ -39,23 +35,37 @@
       padding: 10px 20px;
       border-radius: 20px;
     }
-    main {
-      padding: 40px 20px;
+    h2 {
       text-align: center;
+      color: #ff914d;
+    }
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px 20px;
+    }
+    .producto {
+      text-align: center;
+    }
+    .producto img {
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     footer {
       background-color: #e6d4c4;
       text-align: center;
       padding: 20px;
-      margin-top: 40px;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Pixel Stickers</h1>
-    <p>Creaciones encantadas, hechas con amor</p>
     <nav>
+      <a href="index.html">Inicio</a>
       <a href="stickers.html">Stickers</a>
       <a href="llaveros.html">Llavero Polaroid</a>
       <a href="logos.html">Logos</a>
@@ -63,11 +73,25 @@
     </nav>
   </header>
 
-  <main>
-    <h2>¡Bienvenida al universo de Pixel!</h2>
-    <p>Descubrí productos personalizados para expresar lo que más te gusta.</p>
-  </main>
+  <h2>Galería de Productos</h2>
+  <div class="galeria">
 
+    <div class="producto">
+      <img src="https://placehold.co/300x300?text=Holo+Sticker" alt="Sticker holográfico">
+      <p>Sticker holográfico</p>
+    </div>
+    
+    <div class="producto">
+      <img src="https://placehold.co/300x300?text=Llavero" alt="Llavero Polaroid">
+      <p>Llavero Polaroid</p>
+    </div>
+    
+    <div class="producto">
+      <img src="https://placehold.co/300x300?text=Logo" alt="Logo para emprendimiento">
+      <p>Logo para emprendimiento</p>
+    </div>
+    
+  </div>
   <footer>
     <p>&copy; 2025 Pixel Stickers | @pixel.stickerss</p>
   </footer>

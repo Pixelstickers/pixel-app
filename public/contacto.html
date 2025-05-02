@@ -2,24 +2,72 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Muy pronto</title>
   <style>
     body {
+      margin: 0;
       font-family: 'Quicksand', sans-serif;
       background-color: #fffaf5;
-      text-align: center;
-      padding-top: 100px;
       color: #4a2e1c;
+      text-align: center;
     }
-    h1 {
+    
+    header {
+      background: url('header_zorro.png') no-repeat center top;
+      background-size: cover;
+      padding: 180px 20px 100px;
+      text-align: center;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      background-color: #ff914d;
+      padding: 10px 20px;
+      border-radius: 20px;
+    }
+    main {
+      padding: 120px 20px;
+    }
+    h2 {
       font-size: 2.5em;
       color: #ff914d;
+    }
+    footer {
+      background-color: #e6d4c4;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <h1>¡Muy pronto!</h1>
-  <p>Estamos trabajando en esta sección 💛</p>
+  <header>
+    <h1>Pixel Stickers</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="stickers.html">Stickers</a>
+      <a href="llaveros.html">Llavero Polaroid</a>
+      <a href="logos.html">Logos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+  <main>
+    <h2>¡Muy pronto!</h2>
+    <p>Estamos preparando esta sección 💛</p>
+  </main>
+  <footer>
+    <p>&copy; 2025 Pixel Stickers | @pixel.stickerss</p>
+  </footer>
 </body>
 </html>
