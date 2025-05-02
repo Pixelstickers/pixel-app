@@ -15,7 +15,7 @@
     header {
       background: url('header_zorro.png') no-repeat center top;
       background-size: cover;
-      padding: 180px 20px 100px;
+      padding: 140px 20px 80px;
       text-align: center;
       color: #fff;
     }
@@ -35,29 +35,11 @@
       padding: 10px 20px;
       border-radius: 20px;
     }
-    h2 {
-      text-align: center;
-      color: #ff914d;
-    }
-    .galeria {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      padding: 40px 20px;
-    }
-    .producto {
-      text-align: center;
-    }
-    .producto img {
-      width: 300px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
     footer {
       background-color: #e6d4c4;
       text-align: center;
       padding: 20px;
+      margin-top: 40px;
     }
   </style>
 </head>
@@ -72,26 +54,26 @@
       <a href="contacto.html">Contacto</a>
     </nav>
   </header>
+  
+  <main>
+    <h2 style="text-align:center; color:#ff914d;">Galería de Productos</h2>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; padding: 40px 20px;">
 
-  <h2>Galería de Productos</h2>
-  <div class="galeria">
-
-    <div class="producto">
-      <img src="https://placehold.co/300x300?text=Holo+Sticker" alt="Sticker holográfico">
-      <p>Sticker holográfico</p>
-    </div>
+      <div style="text-align:center;">
+        <img src="https://placehold.co/300x300?text=Holo+Sticker" alt="Sticker holográfico" style="width:300px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+        <p>Sticker holográfico</p>
+      </div>
     
-    <div class="producto">
-      <img src="https://placehold.co/300x300?text=Llavero" alt="Llavero Polaroid">
-      <p>Llavero Polaroid</p>
-    </div>
+      <div style="text-align:center;">
+        <img src="https://placehold.co/300x300?text=Llavero" alt="Llavero Polaroid" style="width:300px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+        <p>Llavero Polaroid</p>
+      </div>
     
-    <div class="producto">
-      <img src="https://placehold.co/300x300?text=Logo" alt="Logo para emprendimiento">
-      <p>Logo para emprendimiento</p>
-    </div>
-    
-  </div>
+      <div style="text-align:center;">
+        <img src="https://placehold.co/300x300?text=Logo" alt="Logo para emprendimiento" style="width:300px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+        <p>Logo para emprendimiento</p>
+      </div>
+    </div></main>
   <footer>
     <p>&copy; 2025 Pixel Stickers | @pixel.stickerss</p>
   </footer>
