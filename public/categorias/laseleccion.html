@@ -202,7 +202,7 @@
       <div class="dropdown">
         <button onclick="toggleDropdown()" class="dropbtn">Categorías</button>
         <div id="dropdownMenu" class="dropdown-content">
-          <a href="futbol.html">Fútbol</a>
+          <a href="LStbol.html">Fútbol</a>
           <a href="anime.html">Animé</a>
           <a href="amor.html">Amor</a>
           <a href="laseleccion.html">La Selección</a>
@@ -215,13 +215,62 @@
 
   <h2>La Selección</h2>
   <section class="galeria">
-    <!-- Agregá acá tus stickers como hiciste con Fútbol -->
+    <!-- Agregá acá tus stickers-->
     <div class="item">
-      <img src="../imagenes/SL-00001.png" alt="Sticker Selección 1">
-      <p class="codigo">SL-00001</p>
-      <button class="agregar" onclick="agregarAlPedido('SL-00001')">Agregar al pedido</button>
+      <img src="../imagenes/LS-00001.png" alt="Sticker La Selección 1">
+      <p class="codigo">LS-00001</p>
+      <button class="agregar" onclick="agregarAlPedido('LS-00001')">Agregar al pedido</button>
     </div>
-    <!-- ... -->
+    <div class="item">
+      <img src="../imagenes/LS-00002.png" alt="Sticker La Selección 2">
+      <p class="codigo">LS-00002</p>
+      <button class="agregar" onclick="agregarAlPedido('LS-00002')">Agregar al pedido</button>
+    </div>
+    <div class="item">
+      <img src="../imagenes/LS-00003.png" alt="Sticker La Selección 3">
+      <p class="codigo">LS-00003</p>
+      <button class="agregar" onclick="agregarAlPedido('LS-00003')">Agregar al pedido</button>
+    </div>
+    <div class="item">
+      <img src="../imagenes/LS-00004.png" alt="Sticker La Selección 4">
+      <p class="codigo">LS-00004</p>
+      <button class="agregar" onclick="agregarAlPedido('LS-00004')">Agregar al pedido</button>
+    </div>
+    <div class="item">
+      <img src="../imagenes/LS-00005.png" alt="Sticker La Selección 5">
+      <p class="codigo">LS-00005</p>
+      <button class="agregar" onclick="agregarAlPedido('LS-00005')">Agregar al pedido</button>
+    </div>
+    <div class="item">
+      <img src="../imagenes/LS-00006.png" alt="Sticker La Selección 6">
+      <p class="codigo">LS-00006</p>
+      <button class="agregar" onclick="agregarAlPedido('LS-00006')">Agregar al pedido</button>
+    </div>
+    <div class="item">
+      <img src="../imagenes/LS-00007.png" alt="Sticker La Selección 7">
+      <p class="codigo">LS-00007</p>
+      <button class="agregar" onclick="agregarAlPedido('LS-00007')">Agregar al pedido</button>
+    </div>
+    <div class="item">
+      <img src="../imagenes/LS-00008.png" alt="Sticker La Selección 8">
+      <p class="codigo">LS-00008</p>
+      <button class="agregar" onclick="agregarAlPedido('LS-00008')">Agregar al pedido</button>
+    </div>
+    <div class="item">
+      <img src="../imagenes/LS-00009.png" alt="Sticker La Selección 9">
+      <p class="codigo">LS-00009</p>
+      <button class="agregar" onclick="agregarAlPedido('LS-00009')">Agregar al pedido</button>
+    </div>
+    <div class="item">
+      <img src="../imagenes/LS-00010.png" alt="Sticker La Selección 10">
+      <p class="codigo">LS-00010</p>
+      <button class="agregar" onclick="agregarAlPedido('LS-00010')">Agregar al pedido</button>
+    </div>
+    <div class="item">
+      <img src="../imagenes/LS-00011.png" alt="Sticker La Selección 11">
+      <p class="codigo">LS-00011</p>
+      <button class="agregar" onclick="agregarAlPedido('LS-00010')">Agregar al pedido</button>
+    </div>
   </section>
 
   <button id="carritoBtn" onclick="togglePedido()">🛖️ Pedido (0)</button>
@@ -244,33 +293,33 @@
   <script>
     let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || [];
 
-    function guardarYActualizar() {
+    LSnction guardarYActualizar() {
       localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
       document.getElementById("listaPedido").value = pedido.join(", ");
       document.getElementById("carritoBtn").innerText = "🛖️ Pedido (" + pedido.length + ")";
     }
 
-    function agregarAlPedido(codigo) {
+    LSnction agregarAlPedido(codigo) {
       if (!pedido.includes(codigo)) {
         pedido.push(codigo);
         guardarYActualizar();
       }
     }
 
-    function copiarPedido() {
+    LSnction copiarPedido() {
       const textarea = document.getElementById("listaPedido");
       textarea.select();
       document.execCommand("copy");
       alert("¡Códigos copiados!");
     }
 
-    function borrarPedido() {
+    LSnction borrarPedido() {
       pedido = [];
       guardarYActualizar();
       togglePedido(false);
     }
 
-    function togglePedido(forceClose = null) {
+    LSnction togglePedido(forceClose = null) {
       const panel = document.getElementById("panelPedido");
       if (forceClose !== null) {
         panel.style.display = forceClose ? "block" : "none";
@@ -281,12 +330,12 @@
 
     window.onload = guardarYActualizar;
 
-    function toggleDropdown() {
+    LSnction toggleDropdown() {
       const menu = document.getElementById("dropdownMenu");
       menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
 
-    window.addEventListener("click", function (e) {
+    window.addEventListener("click", LSnction (e) {
       const menu = document.getElementById("dropdownMenu");
       if (!e.target.matches('.dropbtn')) {
         if (menu.style.display === "block") {
