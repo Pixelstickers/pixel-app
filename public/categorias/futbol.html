@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,6 +11,13 @@
       background-color: #fffaf5;
       color: #4a2e1c;
     }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 48px;
+      margin: 0;
+    }
+
     header {
       background-image: url('../header_zorro.png');
       background-repeat: no-repeat;
@@ -25,15 +31,14 @@
       text-align: center;
       color: #fff;
       padding: 0 20px;
+      position: relative;
     }
-    h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 48px;
-    }
+
     nav {
       margin-top: 120px;
     }
-    nav a {
+
+    nav a, .categorias-btn {
       text-decoration: none;
       color: white;
       font-weight: bold;
@@ -41,77 +46,20 @@
       padding: 10px 20px;
       border-radius: 20px;
       margin: 5px;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    h2 {
-      color: #ff914d;
-      font-size: 26px;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .galeria {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .item {
-      background-color: #fff;
-      border-radius: 10px;
-      padding: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      text-align: center;
-      width: 220px;
-    }
-    .item img {
-      width: 100%;
-      border-radius: 6px;
-    }
-    .codigo {
-      margin: 8px 0;
-      font-weight: bold;
-      color: #7a4c2f;
-    }
-    button {
-      background-color: #ff914d;
+      font-family: 'Quicksand', sans-serif;
       border: none;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 8px;
       cursor: pointer;
-    }
-    button:hover {
-      background-color: #e77c33;
-    }
-<<<<<<< HEAD
-    .menu-hamburguesa {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 999;
     }
 
-    .hamburguesa {
-      background-color: #ff914d;
-      color: white;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 20px;
-      font-size: 16px;
-      font-family: 'Quicksand', sans-serif;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    .categorias-btn:hover {
+      background-color: #e77c33;
     }
 
     .menu-lateral {
       display: none;
       flex-direction: column;
       position: fixed;
-      top: 70px;
+      top: 80px;
       left: 20px;
       background-color: #fffaf5;
       border: 2px solid #ff914d;
@@ -127,7 +75,6 @@
       color: #4a2e1c;
       font-weight: bold;
       border-bottom: 1px solid #e6d4c4;
-      font-family: 'Quicksand', sans-serif;
     }
 
     .menu-lateral a:last-child {
@@ -139,65 +86,55 @@
       border-radius: 6px;
     }
 
-=======
-    .dropdown {
-      position: relative;
-      display: inline-block;
+    h2 {
+      color: #ff914d;
+      font-size: 26px;
+      text-align: center;
+      margin: 40px 0 30px;
     }
 
-    .dropbtn {
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .item {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 220px;
+    }
+
+    .item img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .codigo {
+      margin: 8px 0;
+      font-weight: bold;
+      color: #7a4c2f;
+    }
+
+    button {
       background-color: #ff914d;
       border: none;
       color: white;
-      font-weight: bold;
-      font-family: 'Quicksand', sans-serif;
-      padding: 10px 20px;
+      padding: 8px 16px;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 16px;
-      border-radius: 20px;
-      transition: background-color 0.3s ease;
     }
 
-    .dropbtn:hover {
-      background-color: rgba(255, 145, 77, 0.2);
+    button:hover {
+      background-color: #e77c33;
     }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #fffaf5;
-      border-radius: 12px;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
-      z-index: 999;
-      min-width: 160px;
-      margin-top: 5px;
-      overflow: hidden;
-    }
-
-    .dropdown-content a {
-      background: none;
-      border: none;
-      color: #4a2e1c;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      font-family: 'Quicksand', sans-serif;
-      font-size: 16px;
-      text-align: left;
-      transition: background-color 0.2s ease;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #ffe1c4;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
 
     /* Carrito flotante */
->>>>>>> 06e5acd3a0667f92c39826b4768870443579bd2e
     #carritoBtn {
       position: fixed;
       top: 20px;
@@ -245,15 +182,18 @@
 <body>
   <header>
     <h1>Pixel</h1>
-    <!-- Menú hamburguesa -->
-    <div class="menu-hamburguesa">
-      <button class="hamburguesa" onclick="toggleMenu()">☰ Categorías</button>
-      <div id="menuLateral" class="menu-lateral">
-        <a href="../categorias/futbol.html">Fútbol</a>
-        <a href="../categorias/anime.html">Animé</a>
-        <a href="../categorias/amor.html">Amor</a>
-      </div>
-    </div>  
+    <nav>
+      <a href="../../index.html">Inicio</a>
+      <button class="categorias-btn" onclick="toggleMenu()">Categorías</button>
+      <a href="https://pixelstickers.empretienda.com.ar/">Tienda Online</a>
+      <a href="../nosotros.html">Nosotros</a>
+    </nav>
+
+    <div id="menuLateral" class="menu-lateral">
+      <a href="../categorias/futbol.html">Fútbol</a>
+      <a href="../categorias/anime.html">Animé</a>
+      <a href="../categorias/amor.html">Amor</a>
+    </div>
   </header>
 
   <section>
@@ -264,16 +204,7 @@
         <p class="codigo">FU-00001</p>
         <button onclick="agregarAlPedido('FU-00001')">Agregar al pedido</button>
       </div>
-      <div class="item">
-        <img src="../imagenes/Sticker 3.jpg" alt="Sticker Fútbol 2">
-        <p class="codigo">FU-00004</p>
-        <button onclick="agregarAlPedido('FU-00004')">Agregar al pedido</button>
-      </div>
-      <div class="item">
-        <img src="../imagenes/Sticker 5.jpg" alt="Sticker Fútbol 3">
-        <p class="codigo">FU-00007</p>
-        <button onclick="agregarAlPedido('FU-00007')">Agregar al pedido</button>
-      </div>
+      <!-- Agregá más stickers aquí si querés -->
     </div>
   </section>
 
@@ -290,55 +221,47 @@
   <footer>
     <p>&copy; 2025 Pixel Stickers | @pixel.stickerss</p>
   </footer>
+
   <script>
     let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || [];
-  
+
     function agregarAlPedido(codigo) {
       if (!pedido.includes(codigo)) {
         pedido.push(codigo);
         guardarYActualizar();
       }
     }
-  
+
     function guardarYActualizar() {
       localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
       document.getElementById("listaPedido").value = pedido.join(", ");
       document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
     }
-  
+
     function copiarPedido() {
       const textarea = document.getElementById("listaPedido");
       textarea.select();
       document.execCommand("copy");
       alert("¡Códigos copiados!");
     }
-  
+
     function borrarPedido() {
       pedido = [];
       guardarYActualizar();
       togglePedido(false);
     }
-  
+
     function togglePedido(forceClose = null) {
       const panel = document.getElementById("panelPedido");
-      if (forceClose !== null) {
-        panel.style.display = forceClose ? "block" : "none";
-      } else {
-        panel.style.display = panel.style.display === "none" ? "block" : "none";
-      }
+      panel.style.display = forceClose !== null ? (forceClose ? "block" : "none") : (panel.style.display === "none" ? "block" : "none");
     }
 
-    function toggleSidebar() {
-      document.getElementById("sidebar").classList.toggle("open");
-    }
-
-    window.onload = actualizarLista;
-  </script>
-  <script>
     function toggleMenu() {
       const menu = document.getElementById("menuLateral");
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
     }
-  </script>  
+
+    window.onload = guardarYActualizar;
+  </script>
 </body>
 </html>
