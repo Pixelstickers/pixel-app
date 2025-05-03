@@ -177,35 +177,35 @@
   <footer>
     <p>&copy; 2025 Pixel Stickers | @pixel.stickerss</p>
   </footer>
-
   <script>
-    let pedido = [];
-
+    let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || [];
+  
     function agregarAlPedido(codigo) {
       if (!pedido.includes(codigo)) {
         pedido.push(codigo);
-        actualizarLista();
+        guardarYActualizar();
       }
     }
-
-    function actualizarLista() {
+  
+    function guardarYActualizar() {
+      localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
       document.getElementById("listaPedido").value = pedido.join(", ");
       document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
     }
-
+  
     function copiarPedido() {
       const textarea = document.getElementById("listaPedido");
       textarea.select();
       document.execCommand("copy");
       alert("¡Códigos copiados!");
     }
-
+  
     function borrarPedido() {
       pedido = [];
-      actualizarLista();
+      guardarYActualizar();
       togglePedido(false);
     }
-
+  
     function togglePedido(forceClose = null) {
       const panel = document.getElementById("panelPedido");
       if (forceClose !== null) {
@@ -214,6 +214,8 @@
         panel.style.display = panel.style.display === "none" ? "block" : "none";
       }
     }
-  </script>
+  
+    window.onload = guardarYActualizar;
+  </script>  
 </body>
 </html>
