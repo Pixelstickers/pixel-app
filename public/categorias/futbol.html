@@ -3,19 +3,14 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Fútbol</title>
+  <title>Fútbol - Pixel</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Quicksand', sans-serif;
-      font-size: 18px;
       background-color: #fffaf5;
       color: #4a2e1c;
-    }
-    h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 48px;
     }
     header {
       background-image: url('../header_zorro.png');
@@ -31,8 +26,12 @@
       color: #fff;
       padding: 0 20px;
     }
-    header nav {
-      margin-top: 120px;
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 48px;
+    }
+    nav {
+      margin-top: 30px;
     }
     nav a {
       text-decoration: none;
@@ -51,42 +50,52 @@
     h2 {
       color: #ff914d;
       font-size: 26px;
-      margin-bottom: 20px;
-      text-align: center; /* <- añadí esto */
+      text-align: center;
+      margin-bottom: 30px;
     }
-
     .galeria {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
+      justify-content: center;
     }
-
     .item {
-      flex: 1 1 calc(25% - 20px); /* 4 items por fila con separación */
-      max-width: 220px;
       background-color: #fff;
       border-radius: 10px;
       padding: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       text-align: center;
+      width: 220px;
     }
     .item img {
       width: 100%;
       border-radius: 6px;
     }
     .codigo {
-      margin-top: 8px;
+      margin: 8px 0;
       font-weight: bold;
       color: #7a4c2f;
     }
-    footer {
-      background-color: #e6d4c4;
+    button {
+      background-color: #ff914d;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e77c33;
+    }
+    #pedido {
       text-align: center;
-      padding: 20px;
-      font-family: 'Quicksand', sans-serif;
+      margin-top: 40px;
+    }
+    #pedido textarea {
+      width: 80%;
+      height: 100px;
+      margin-top: 10px;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -101,22 +110,63 @@
   </header>
 
   <section>
-    <h2 style="text-align: center;">Fútbol</h2>
+    <h2>Fútbol</h2>
     <div class="galeria">
       <div class="item">
-        <img src="../imagenes/Sticker 1.jpg" alt="Fútbol">
+        <img src="../Images/Sticker 1.jpg" alt="Sticker Fútbol 1">
         <p class="codigo">ID-00001</p>
+        <button onclick="agregarAlPedido('ID-00001')">Agregar al pedido</button>
       </div>
       <div class="item">
-        <img src="../imagenes/Sticker 3.jpg" alt="Fútbol">
+        <img src="../Images/Sticker 3.jpg" alt="Sticker Fútbol 2">
         <p class="codigo">ID-00004</p>
+        <button onclick="agregarAlPedido('ID-00004')">Agregar al pedido</button>
       </div>
-      <!-- Agregá más .item aquí -->
+      <div class="item">
+        <img src="../Images/Sticker 5.jpg" alt="Sticker Fútbol 3">
+        <p class="codigo">ID-00007</p>
+        <button onclick="agregarAlPedido('ID-00007')">Agregar al pedido</button>
+      </div>
+    </div>
+
+    <div id="pedido">
+      <h2>Tu Pedido</h2>
+      <p>Copiá estos códigos y mandalos por WhatsApp o Instagram</p>
+      <textarea id="listaPedido" readonly></textarea><br>
+      <button onclick="copiarPedido()">Copiar</button>
+      <button onclick="borrarPedido()">Borrar todo</button>
     </div>
   </section>
 
   <footer>
     <p>&copy; 2025 Pixel Stickers | @pixel.stickerss</p>
   </footer>
+
+  <script>
+    let pedido = [];
+
+    function agregarAlPedido(codigo) {
+      if (!pedido.includes(codigo)) {
+        pedido.push(codigo);
+        actualizarLista();
+      }
+    }
+
+    function actualizarLista() {
+      document.getElementById("listaPedido").value = pedido.join(", ");
+    }
+
+    function copiarPedido() {
+      const textarea = document.getElementById("listaPedido");
+      textarea.select();
+      document.execCommand("copy");
+      alert("¡Códigos copiados!");
+    }
+
+    function borrarPedido() {
+      pedido = [];
+      actualizarLista();
+    }
+  </script>
 </body>
 </html>
