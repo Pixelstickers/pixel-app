@@ -87,6 +87,56 @@
     button:hover {
       background-color: #e77c33;
     }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      background-color: transparent;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 20px;
+      transition: background-color 0.3s;
+    }
+
+    .dropbtn:hover {
+      background-color: #ff914d;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fffaf5;
+      min-width: 160px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      z-index: 999;
+    }
+
+    .dropdown-content a {
+      color: #4a2e1c;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+      font-family: 'Quicksand', sans-serif;
+      border-bottom: 1px solid #e6d4c4;
+    }
+
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ffe1c4;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
 
     /* Carrito flotante */
     #carritoBtn {
@@ -137,10 +187,17 @@
   <header>
     <h1>Pixel</h1>
     <nav>
-      <a href="../../index.html">Inicio</a>
+      <div class="dropdown">
+        <a href="../../index.html" class="dropbtn">Categorías</a>
+        <div class="dropdown-content">
+          <a href="../categorias/futbol.html">Fútbol</a>
+          <a href="../categorias/anime.html">Animé</a>
+          <a href="../categorias/amor.html">Amor</a>
+        </div>
+      </div>
       <a href="https://pixelstickers.empretienda.com.ar/">Tienda Online</a>
       <a href="../nosotros.html">Nosotros</a>
-    </nav>
+    </nav>    
   </header>
 
   <section>
