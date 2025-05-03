@@ -273,7 +273,7 @@
     </div>
   </section>
 
-  <button id="carritoBtn" onclick="togglePedido()">🛖️ Pedido (0)</button>
+  <button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
 
   <div id="panelPedido">
     <h3>Tu pedido</h3>
@@ -293,33 +293,33 @@
   <script>
     let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || [];
 
-    LSnction guardarYActualizar() {
+    function guardarYActualizar() {
       localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
       document.getElementById("listaPedido").value = pedido.join(", ");
-      document.getElementById("carritoBtn").innerText = "🛖️ Pedido (" + pedido.length + ")";
+      document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
     }
 
-    LSnction agregarAlPedido(codigo) {
+    function agregarAlPedido(codigo) {
       if (!pedido.includes(codigo)) {
         pedido.push(codigo);
         guardarYActualizar();
       }
     }
 
-    LSnction copiarPedido() {
+    function copiarPedido() {
       const textarea = document.getElementById("listaPedido");
       textarea.select();
       document.execCommand("copy");
       alert("¡Códigos copiados!");
     }
 
-    LSnction borrarPedido() {
+    function borrarPedido() {
       pedido = [];
       guardarYActualizar();
       togglePedido(false);
     }
 
-    LSnction togglePedido(forceClose = null) {
+    function togglePedido(forceClose = null) {
       const panel = document.getElementById("panelPedido");
       if (forceClose !== null) {
         panel.style.display = forceClose ? "block" : "none";
@@ -330,19 +330,20 @@
 
     window.onload = guardarYActualizar;
 
-    LSnction toggleDropdown() {
-      const menu = document.getElementById("dropdownMenu");
-      menu.style.display = menu.style.display === "block" ? "none" : "block";
-    }
+    function toggleDropdown() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  }
 
-    window.addEventListener("click", LSnction (e) {
-      const menu = document.getElementById("dropdownMenu");
-      if (!e.target.matches('.dropbtn')) {
-        if (menu.style.display === "block") {
-          menu.style.display = "none";
-        }
+  // Cierra el menú si se hace clic fuera
+  window.addEventListener("click", function (e) {
+    const menu = document.getElementById("dropdownMenu");
+    if (!e.target.matches('.dropbtn')) {
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
       }
-    });
+    }
+  });
   </script>
 </body>
 </html>
