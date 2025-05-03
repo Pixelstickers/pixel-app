@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Stickers</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -49,26 +49,6 @@
       color: #ff914d;
       margin-top: 40px;
     }
-    .galeria {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin: 40px 20px;
-    }
-    .galeria img {
-      width: 200px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .nosotros {
-      font-family: 'Dancing Script', cursive;
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 22px;
-      line-height: 1.6;
-    }
     .categorias {
       display: flex;
       flex-wrap: wrap;
@@ -77,7 +57,6 @@
       margin: 40px auto;
       max-width: 1000px;
     }
-
     .categoria {
       text-align: center;
       text-decoration: none;
@@ -89,17 +68,14 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       transition: transform 0.2s ease;
     }
-
     .categoria:hover {
       transform: scale(1.05);
     }
-
     .categoria img {
       width: 100%;
       border-radius: 8px;
       margin-bottom: 10px;
     }
-
     .categoria p {
       font-weight: bold;
       font-size: 18px;
@@ -110,6 +86,39 @@
       padding: 20px;
       margin-top: 40px;
       font-family: 'Quicksand', sans-serif;
+    }
+    /* Carrito flotante */
+    #carritoBtn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #ff914d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 1000;
+    }
+    #panelPedido {
+      display: none;
+      position: fixed;
+      top: 70px;
+      right: 20px;
+      background-color: #fff;
+      border: 2px solid #ff914d;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      width: 300px;
+      z-index: 999;
+    }
+    #panelPedido textarea {
+      width: 100%;
+      height: 100px;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -122,7 +131,7 @@
       <a href="nosotros.html">Nosotros</a>
     </nav>
   </header>
-  <h2>Categoria de Stickers</h2>
+  <h2>Categoría de Stickers</h2>
   <main>
     <div class="categorias">
       <a href="categorias/futbol.html" class="categoria">
@@ -139,8 +148,53 @@
       </a>
     </div>
   </main>
+
+  <button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
+
+  <div id="panelPedido">
+    <h3>Tu pedido</h3>
+    <p>Copiá estos códigos y mandalos por WhatsApp o Instagram:</p>
+    <textarea id="listaPedido" readonly></textarea><br>
+    <button onclick="copiarPedido()">Copiar</button>
+    <button onclick="borrarPedido()">Borrar todo</button>
+  </div>
+
   <footer>
     <p>&copy; 2025 Pixel Stickers | @pixel.stickerss</p>
   </footer>
+
+  <script>
+    let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || [];
+
+    function guardarYActualizar() {
+      localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
+      document.getElementById("listaPedido").value = pedido.join(", ");
+      document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
+    }
+
+    function copiarPedido() {
+      const textarea = document.getElementById("listaPedido");
+      textarea.select();
+      document.execCommand("copy");
+      alert("¡Códigos copiados!");
+    }
+
+    function borrarPedido() {
+      pedido = [];
+      guardarYActualizar();
+      togglePedido(false);
+    }
+
+    function togglePedido(forceClose = null) {
+      const panel = document.getElementById("panelPedido");
+      if (forceClose !== null) {
+        panel.style.display = forceClose ? "block" : "none";
+      } else {
+        panel.style.display = panel.style.display === "none" ? "block" : "none";
+      }
+    }
+
+    window.onload = guardarYActualizar;
+  </script>
 </body>
 </html>
