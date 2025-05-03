@@ -52,12 +52,14 @@
       color: #ff914d;
       font-size: 26px;
       margin-bottom: 20px;
+      text-align: center; /* <- añadí esto */
     }
+
     .galeria {
       display: flex;
       flex-wrap: wrap;
       gap: 30px;
-      justify-content: flex-start;
+      justify-content: center; /* <- antes era flex-start */
     }
     .item {
       background-color: #fff;
@@ -95,7 +97,7 @@
   </header>
 
   <section>
-    <h2>Fútbol</h2>
+    <h2 style="text-align: center;">Fútbol</h2>
     <div class="galeria">
       <div class="item">
         <img src="Images/Sticker 3.jpg" alt="Fútbol">
