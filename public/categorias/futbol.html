@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,9 +37,14 @@
 
     nav {
       margin-top: 120px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    nav a, .categorias-btn {
+    nav a,
+    .categorias-btn {
       text-decoration: none;
       color: white;
       font-weight: bold;
@@ -51,16 +57,15 @@
       cursor: pointer;
     }
 
-    .categorias-btn:hover {
-      background-color: #e77c33;
+    .dropdown {
+      position: relative;
     }
 
-    .menu-lateral {
+    .menu-dropdown {
       display: none;
-      flex-direction: column;
-      position: fixed;
-      top: 80px;
-      left: 20px;
+      position: absolute;
+      top: 100%;
+      left: 0;
       background-color: #fffaf5;
       border: 2px solid #ff914d;
       border-radius: 10px;
@@ -69,19 +74,20 @@
       z-index: 998;
     }
 
-    .menu-lateral a {
+    .menu-dropdown a {
       padding: 8px 12px;
       text-decoration: none;
       color: #4a2e1c;
       font-weight: bold;
+      display: block;
       border-bottom: 1px solid #e6d4c4;
     }
 
-    .menu-lateral a:last-child {
+    .menu-dropdown a:last-child {
       border-bottom: none;
     }
 
-    .menu-lateral a:hover {
+    .menu-dropdown a:hover {
       background-color: #ffe1c4;
       border-radius: 6px;
     }
@@ -134,7 +140,6 @@
       background-color: #e77c33;
     }
 
-    /* Carrito flotante */
     #carritoBtn {
       position: fixed;
       top: 20px;
@@ -173,9 +178,9 @@
     footer {
       background-color: #e6d4c4;
       text-align: center;
-      padding: 4px;
-      margin-top: 100px;
+      padding: 20px;
       font-family: 'Quicksand', sans-serif;
+      margin-top: 60px;
     }
   </style>
 </head>
@@ -184,16 +189,17 @@
     <h1>Pixel</h1>
     <nav>
       <a href="../../index.html">Inicio</a>
-      <button class="categorias-btn" onclick="toggleMenu()">Categorías</button>
+      <div class="dropdown">
+        <button class="categorias-btn" onclick="toggleMenu()">Categorías</button>
+        <div id="menuDropdown" class="menu-dropdown">
+          <a href="../categorias/futbol.html">Fútbol</a>
+          <a href="../categorias/anime.html">Animé</a>
+          <a href="../categorias/amor.html">Amor</a>
+        </div>
+      </div>
       <a href="https://pixelstickers.empretienda.com.ar/">Tienda Online</a>
       <a href="../nosotros.html">Nosotros</a>
     </nav>
-
-    <div id="menuLateral" class="menu-lateral">
-      <a href="../categorias/futbol.html">Fútbol</a>
-      <a href="../categorias/anime.html">Animé</a>
-      <a href="../categorias/amor.html">Amor</a>
-    </div>
   </header>
 
   <section>
@@ -204,7 +210,6 @@
         <p class="codigo">FU-00001</p>
         <button onclick="agregarAlPedido('FU-00001')">Agregar al pedido</button>
       </div>
-      <!-- Agregá más stickers aquí si querés -->
     </div>
   </section>
 
@@ -257,8 +262,8 @@
     }
 
     function toggleMenu() {
-      const menu = document.getElementById("menuLateral");
-      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+      const menu = document.getElementById("menuDropdown");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
 
     window.onload = guardarYActualizar;
