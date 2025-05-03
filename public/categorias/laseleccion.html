@@ -32,7 +32,7 @@
     nav {
       margin-top: 120px;
     }
-    nav a {
+    nav a, .dropbtn {
       text-decoration: none;
       color: white;
       font-weight: bold;
@@ -40,6 +40,36 @@
       padding: 10px 20px;
       border-radius: 20px;
       margin: 5px;
+      font-family: 'Quicksand', sans-serif;
+      display: inline-block;
+      line-height: 24px;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fffaf5;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      z-index: 999;
+      top: 50px;
+    }
+    .dropdown-content a {
+      color: #4a2e1c;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+      border-bottom: 1px solid #e6d4c4;
+    }
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+    .dropdown-content a:hover {
+      background-color: #ffe1c4;
     }
     section {
       padding: 40px 20px;
@@ -87,7 +117,6 @@
     button.agregar:hover {
       background-color: #e77c33;
     }
-
     #carritoBtn {
       position: fixed;
       top: 20px;
@@ -102,7 +131,6 @@
       cursor: pointer;
       z-index: 1000;
     }
-
     #panelPedido {
       display: none;
       position: fixed;
@@ -116,14 +144,12 @@
       width: 320px;
       z-index: 999;
     }
-
     #panelPedido textarea {
       width: 100%;
       height: 100px;
       font-size: 14px;
       margin-bottom: 10px;
     }
-
     .btn-contacto {
       display: block;
       margin: 8px 0;
@@ -136,11 +162,9 @@
       font-weight: bold;
       transition: background-color 0.3s;
     }
-
     .btn-contacto:hover {
       background-color: #e77c33;
     }
-
     footer {
       background-color: #e6d4c4;
       text-align: center;
@@ -155,6 +179,15 @@
     <h1>Pixel</h1>
     <nav>
       <a href="../../index.html">Inicio</a>
+      <div class="dropdown">
+        <button onclick="toggleDropdown()" class="dropbtn">Categorías</button>
+        <div id="dropdownMenu" class="dropdown-content">
+          <a href="futbol.html">Fútbol</a>
+          <a href="anime.html">Animé</a>
+          <a href="amor.html">Amor</a>
+          <a href="laseleccion.html">La Selección</a>
+        </div>
+      </div>
       <a href="https://pixelstickers.empretienda.com.ar/">Tienda Online</a>
       <a href="../nosotros.html">Nosotros</a>
     </nav>
@@ -162,14 +195,16 @@
 
   <h2>La Selección</h2>
   <section class="galeria">
+    <!-- Agregá acá tus stickers como hiciste con Fútbol -->
     <div class="item">
-      <img src="../imagenes/Sticker 2.png" alt="Sticker La Selección">
-      <p class="codigo">LS-00001</p>
-      <button class="agregar" onclick="agregarAlPedido('LS-00001')">Agregar al pedido</button>
+      <img src="../imagenes/SL-00001.png" alt="Sticker Selección 1">
+      <p class="codigo">SL-00001</p>
+      <button class="agregar" onclick="agregarAlPedido('SL-00001')">Agregar al pedido</button>
     </div>
+    <!-- ... -->
   </section>
 
-  <button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
+  <button id="carritoBtn" onclick="togglePedido()">🛖️ Pedido (0)</button>
 
   <div id="panelPedido">
     <h3>Tu pedido</h3>
@@ -192,7 +227,7 @@
     function guardarYActualizar() {
       localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
       document.getElementById("listaPedido").value = pedido.join(", ");
-      document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
+      document.getElementById("carritoBtn").innerText = "🛖️ Pedido (" + pedido.length + ")";
     }
 
     function agregarAlPedido(codigo) {
@@ -225,6 +260,20 @@
     }
 
     window.onload = guardarYActualizar;
+
+    function toggleDropdown() {
+      const menu = document.getElementById("dropdownMenu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    window.addEventListener("click", function (e) {
+      const menu = document.getElementById("dropdownMenu");
+      if (!e.target.matches('.dropbtn')) {
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+        }
+      }
+    });
   </script>
 </body>
 </html>
