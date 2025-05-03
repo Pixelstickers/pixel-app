@@ -3,15 +3,20 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Pixel - Stickers</title>
+  <title>Pixel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Quicksand', sans-serif;
+      font-size: 18px;
       background-color: #fffaf5;
       color: #4a2e1c;
     }
-    
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 48px;
+    }
     header {
       background-image: url('header_zorro.png');
       background-repeat: no-repeat;
@@ -26,13 +31,8 @@
       color: #fff;
       padding: 0 20px;
     }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 120px;
-      flex-wrap: wrap;
+    header nav {
+      margin-top: 30px;
     }
     nav a {
       text-decoration: none;
@@ -41,12 +41,40 @@
       background-color: #ff914d;
       padding: 10px 20px;
       border-radius: 20px;
+      margin: 5px;
+      font-family: 'Quicksand', sans-serif;
+    }
+    h2 {
+      text-align: center;
+      color: #ff914d;
+      margin-top: 40px;
+    }
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin: 40px 20px;
+    }
+    .galeria img {
+      width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .nosotros {
+      font-family: 'Dancing Script', cursive;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 22px;
+      line-height: 1.6;
     }
     footer {
       background-color: #e6d4c4;
       text-align: center;
       padding: 20px;
       margin-top: 40px;
+      font-family: 'Quicksand', sans-serif;
     }
   </style>
 </head>
@@ -60,26 +88,17 @@
       <a href="nosotros.html">Nosotros</a>
     </nav>
   </header>
-  
-  <main>
-    <h2 style="text-align:center; color:#ff914d;">Galería de Productos</h2>
-    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; padding: 40px 20px;">
 
-      <div style="text-align:center;">
-        <img src="https://placehold.co/300x300?text=Holo+Sticker" alt="Sticker holográfico" style="width:300px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-        <p>Sticker holográfico</p>
-      </div>
-    
-      <div style="text-align:center;">
-        <img src="https://placehold.co/300x300?text=Llavero" alt="Llavero Polaroid" style="width:300px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-        <p>Llavero Polaroid</p>
-      </div>
-    
-      <div style="text-align:center;">
-        <img src="https://placehold.co/300x300?text=Logo" alt="Logo para emprendimiento" style="width:300px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-        <p>Logo para emprendimiento</p>
-      </div>
-    </div></main>
+  <h2>Sobre Pixel</h2>
+  <div class="nosotros">
+    <p>
+      Pixel es un emprendimiento pequeño, hecho con muchísimo amor.<br><br>
+      Nació con la idea de seguir un legado familiar, inspirado por mi papá, a quien perdí este año pero que sigue presente en cada paso que doy.<br><br>
+      Cada sticker, cada llavero y cada detalle está pensado con dedicación, con esa mezcla de nostalgia y creatividad que me acompaña desde siempre.<br><br>
+      Espero que disfrutes lo que hago tanto como yo disfruto crearlo. Gracias por apoyar lo hecho a mano, lo hecho con el corazón.
+    </p>
+  </div>
+
   <footer>
     <p>&copy; 2025 Pixel Stickers | @pixel.stickerss</p>
   </footer>
