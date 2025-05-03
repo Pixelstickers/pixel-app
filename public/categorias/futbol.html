@@ -87,6 +87,59 @@
     button:hover {
       background-color: #e77c33;
     }
+<<<<<<< HEAD
+    .menu-hamburguesa {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+    }
+
+    .hamburguesa {
+      background-color: #ff914d;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 20px;
+      font-size: 16px;
+      font-family: 'Quicksand', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .menu-lateral {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 70px;
+      left: 20px;
+      background-color: #fffaf5;
+      border: 2px solid #ff914d;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 998;
+    }
+
+    .menu-lateral a {
+      padding: 8px 12px;
+      text-decoration: none;
+      color: #4a2e1c;
+      font-weight: bold;
+      border-bottom: 1px solid #e6d4c4;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .menu-lateral a:last-child {
+      border-bottom: none;
+    }
+
+    .menu-lateral a:hover {
+      background-color: #ffe1c4;
+      border-radius: 6px;
+    }
+
+=======
     .dropdown {
       position: relative;
       display: inline-block;
@@ -144,6 +197,7 @@
 
 
     /* Carrito flotante */
+>>>>>>> 06e5acd3a0667f92c39826b4768870443579bd2e
     #carritoBtn {
       position: fixed;
       top: 20px;
@@ -191,19 +245,15 @@
 <body>
   <header>
     <h1>Pixel</h1>
-    <nav>
-      <a href="../../index.html">Inicio</a>
-      <div class="dropdown">
-        <button class="dropbtn">Categorías</button>
-        <div class="dropdown-content">
-          <a href="../categorias/futbol.html">Fútbol</a>
-          <a href="../categorias/anime.html">Animé</a>
-          <a href="../categorias/amor.html">Amor</a>
-        </div>
+    <!-- Menú hamburguesa -->
+    <div class="menu-hamburguesa">
+      <button class="hamburguesa" onclick="toggleMenu()">☰ Categorías</button>
+      <div id="menuLateral" class="menu-lateral">
+        <a href="../categorias/futbol.html">Fútbol</a>
+        <a href="../categorias/anime.html">Animé</a>
+        <a href="../categorias/amor.html">Amor</a>
       </div>
-      <a href="https://pixelstickers.empretienda.com.ar/">Tienda Online</a>
-      <a href="../nosotros.html">Nosotros</a>
-    </nav>    
+    </div>  
   </header>
 
   <section>
@@ -277,8 +327,18 @@
         panel.style.display = panel.style.display === "none" ? "block" : "none";
       }
     }
-  
-    window.onload = guardarYActualizar;
+
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+
+    window.onload = actualizarLista;
+  </script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menuLateral");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
   </script>  
 </body>
 </html>
