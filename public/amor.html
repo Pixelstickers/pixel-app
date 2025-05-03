@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pixel Stickers - Inicio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fffaf5;
+      color: #4a2e1c;
+    }
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 48px;
+    }
+    header {
+      background-image: url('header_zorro.png');
+      background-repeat: no-repeat;
+      background-position: center 25%;
+      background-size: cover;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 0 20px;
+    }
+    header nav {
+      margin-top: 30px;
+    }
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      background-color: #ff914d;
+      padding: 10px 20px;
+      border-radius: 20px;
+      margin: 5px;
+    }
+    main {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+    h2 {
+      color: #ff914d;
+      margin-bottom: 30px;
+    }
+    .categorias {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+    .categoria {
+      width: 200px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-decoration: none;
+      color: #4a2e1c;
+      transition: transform 0.2s;
+    }
+    .categoria:hover {
+      transform: scale(1.05);
+    }
+    .categoria img {
+      width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .categoria p {
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    footer {
+      background-color: #e6d4c4;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pixel</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="tienda.html">Tienda Online</a>
+      <a href="nosotros.html">Nosotros</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Elegí una categoría</h2>
+    <div class="categorias">
+      <a href="futbol.html" class="categoria">
+        <img src="Images/Sticker 1.jpg" alt="Fútbol">
+        <p>Fútbol</p>
+      </a>
+      <a href="anime.html" class="categoria">
+        <img src="Images/Sticker 2.jpg" alt="anime">
+        <p>Animé</p>
+      </a>
+      <a href="amor.html" class="categoria">
+        <img src="Images/Sticker 3.jpg" alt="amor">
+        <p>Amor</p>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Pixel Stickers | @pixel.stickerss</p>
+  </footer>
+</body>
+</html>
