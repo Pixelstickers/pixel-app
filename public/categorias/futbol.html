@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,10 +11,6 @@
       font-family: 'Quicksand', sans-serif;
       background-color: #fffaf5;
       color: #4a2e1c;
-    }
-    h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 48px;
     }
     header {
       background-image: url('../header_zorro.png');
@@ -29,69 +26,46 @@
       color: #fff;
       padding: 0 20px;
     }
-    nav {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 48px;
     }
-    nav a, .dropbtn {
+    nav {
+      margin-top: 120px;
+    }
+    nav a {
       text-decoration: none;
       color: white;
       font-weight: bold;
       background-color: #ff914d;
       padding: 10px 20px;
       border-radius: 20px;
-      font-family: 'Quicksand', sans-serif;
-      border: none;
-      cursor: pointer;
-      display: inline-block;
+      margin: 5px;
     }
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 45px;
-      left: 0;
-      background-color: #fffaf5;
-      border-radius: 10px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      min-width: 140px;
-      z-index: 999;
-      padding: 10px 0;
-    }
-    .dropdown-content a {
-      color: #4a2e1c;
-      padding: 10px 15px;
-      text-decoration: none;
-      display: block;
-      font-family: 'Quicksand', sans-serif;
-    }
-    .dropdown-content a:hover {
-      background-color: #ffe1c4;
+    section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
     }
     h2 {
-      text-align: center;
       color: #ff914d;
-      margin-top: 40px;
+      font-size: 26px;
+      text-align: center;
+      margin-bottom: 30px;
     }
     .galeria {
       display: flex;
       flex-wrap: wrap;
+      gap: 20px;
       justify-content: center;
-      gap: 30px;
-      margin: 20px;
     }
     .item {
-      width: 220px;
       background-color: #fff;
       border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       text-align: center;
+      width: 220px;
     }
     .item img {
       width: 100%;
@@ -104,21 +78,14 @@
     }
     button.agregar {
       background-color: #ff914d;
-      color: white;
       border: none;
+      color: white;
       padding: 8px 16px;
       border-radius: 8px;
       cursor: pointer;
     }
     button.agregar:hover {
       background-color: #e77c33;
-    }
-    footer {
-      background-color: #e6d4c4;
-      text-align: center;
-      padding: 20px;
-      font-family: 'Quicksand', sans-serif;
-      margin-top: 60px;
     }
     #carritoBtn {
       position: fixed;
@@ -152,6 +119,33 @@
       height: 100px;
       font-size: 14px;
     }
+    #btnWhatsapp, #btnInstagram {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #25d366;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    #btnInstagram {
+      background-color: #e1306c;
+    }
+    #btnWhatsapp:hover {
+      background-color: #1ebe5c;
+    }
+    #btnInstagram:hover {
+      background-color: #c7155f;
+    }
+    footer {
+      background-color: #e6d4c4;
+      text-align: center;
+      padding: 20px;
+      font-family: 'Quicksand', sans-serif;
+      margin-top: 60px;
+    }
   </style>
 </head>
 <body>
@@ -159,14 +153,6 @@
     <h1>Pixel</h1>
     <nav>
       <a href="../../index.html">Inicio</a>
-      <div class="dropdown">
-        <button class="dropbtn" onclick="toggleDropdown()">Categorías</button>
-        <div class="dropdown-content" id="categoriaDropdown">
-          <a href="../categorias/futbol.html">Fútbol</a>
-          <a href="../categorias/laseleccion.html">La Selección</a>
-          <a href="../categorias/amor.html">Amor</a>
-        </div>
-      </div>
       <a href="https://pixelstickers.empretienda.com.ar/">Tienda Online</a>
       <a href="../nosotros.html">Nosotros</a>
     </nav>
@@ -175,150 +161,23 @@
   <h2>Fútbol</h2>
   <section class="galeria">
     <div class="item">
-      <img src="../imagenes/FU-00001.png" alt="Sticker Fútbol 1">
+      <img src="../imagenes/Sticker 1.jpg" alt="Sticker Fútbol">
       <p class="codigo">FU-00001</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00001')">Agregar al pedido</button>
     </div>
-    <div class="item">
-      <img src="../imagenes/FU-00002.png" alt="Sticker Fútbol 2">
-      <p class="codigo">FU-00002</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00002')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00003.png" alt="Sticker Fútbol 3">
-      <p class="codigo">FU-00003</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00003')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00004.png" alt="Sticker Fútbol 4">
-      <p class="codigo">FU-00004</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00004')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00005.png" alt="Sticker Fútbol 5">
-      <p class="codigo">FU-00005</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00005')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00006.png" alt="Sticker Fútbol 6">
-      <p class="codigo">FU-00006</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00006')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00007.png" alt="Sticker Fútbol 7">
-      <p class="codigo">FU-00007</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00007')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00008.png" alt="Sticker Fútbol 8">
-      <p class="codigo">FU-00008</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00008')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00009.png" alt="Sticker Fútbol 9">
-      <p class="codigo">FU-00009</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00009')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00010.png" alt="Sticker Fútbol 10">
-      <p class="codigo">FU-00010</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00010')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00011.png" alt="Sticker Fútbol 11">
-      <p class="codigo">FU-00011</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00011')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00012.png" alt="Sticker Fútbol 12">
-      <p class="codigo">FU-00012</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00012')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00013.png" alt="Sticker Fútbol 13">
-      <p class="codigo">FU-00013</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00013')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00014.png" alt="Sticker Fútbol 14">
-      <p class="codigo">FU-00014</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00014')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00015.png" alt="Sticker Fútbol 15">
-      <p class="codigo">FU-00015</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00015')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00016.png" alt="Sticker Fútbol 16">
-      <p class="codigo">FU-00016</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00016')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00017.png" alt="Sticker Fútbol 17">
-      <p class="codigo">FU-00017</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00017')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00018.png" alt="Sticker Fútbol 18">
-      <p class="codigo">FU-00018</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00018')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00019.png" alt="Sticker Fútbol 19">
-      <p class="codigo">FU-00019</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00019')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00020.png" alt="Sticker Fútbol 20">
-      <p class="codigo">FU-00020</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00020')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00021.png" alt="Sticker Fútbol 21">
-      <p class="codigo">FU-00021</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00021')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00022.png" alt="Sticker Fútbol 22">
-      <p class="codigo">FU-00022</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00022')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00023.png" alt="Sticker Fútbol 23">
-      <p class="codigo">FU-00023</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00023')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00024.png" alt="Sticker Fútbol 24">
-      <p class="codigo">FU-00024</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00024')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00025.png" alt="Sticker Fútbol 25">
-      <p class="codigo">FU-00025</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00025')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00026.png" alt="Sticker Fútbol 26">
-      <p class="codigo">FU-00026</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00026')">Agregar al pedido</button>
-    </div>
-    <div class="item">
-      <img src="../imagenes/FU-00027.png" alt="Sticker Fútbol 27">
-      <p class="codigo">FU-00027</p>
-      <button class="agregar" onclick="agregarAlPedido('FU-00027')">Agregar al pedido</button>
-    </div>    
   </section>
 
   <button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
 
   <div id="panelPedido">
     <h3>Tu pedido</h3>
-    <p>Copiá los códigos de los productos que te gusten y mandalos por WhatsApp o Instagram. Después, realizá tu compra en la tienda online.:</p>
+    <p>Copiá los códigos de los productos que te gusten y mandalos por WhatsApp, Instagram o en la tienda online.:</p>
     <textarea id="listaPedido" readonly></textarea><br>
     <button onclick="copiarPedido()">Copiar</button>
     <button onclick="borrarPedido()">Borrar todo</button>
+    <br>
+    <a href="https://wa.me/5491166667777?text=Hola!%20Te%20comparto%20los%20códigos%20de%20mi%20pedido:%20" target="_blank" id="btnWhatsapp">Enviar por WhatsApp</a>
+    <a href="https://www.instagram.com/pixel.stickerss/" target="_blank" id="btnInstagram">Ir a Instagram</a>
   </div>
 
   <footer>
@@ -331,14 +190,15 @@
     function agregarAlPedido(codigo) {
       if (!pedido.includes(codigo)) {
         pedido.push(codigo);
-        localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
         actualizarLista();
       }
     }
 
     function actualizarLista() {
+      localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
       document.getElementById("listaPedido").value = pedido.join(", ");
       document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
+      document.getElementById("btnWhatsapp").href = "https://wa.me/5491166667777?text=Hola!%20Te%20comparto%20los%20códigos%20de%20mi%20pedido:%20" + encodeURIComponent(pedido.join(", "));
     }
 
     function copiarPedido() {
@@ -350,19 +210,17 @@
 
     function borrarPedido() {
       pedido = [];
-      localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
       actualizarLista();
       togglePedido(false);
     }
 
     function togglePedido(forceClose = null) {
       const panel = document.getElementById("panelPedido");
-      panel.style.display = (forceClose !== null) ? (forceClose ? "block" : "none") : (panel.style.display === "none" ? "block" : "none");
-    }
-
-    function toggleDropdown() {
-      const dropdown = document.getElementById("categoriaDropdown");
-      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      if (forceClose !== null) {
+        panel.style.display = forceClose ? "block" : "none";
+      } else {
+        panel.style.display = panel.style.display === "none" ? "block" : "none";
+      }
     }
 
     window.onload = actualizarLista;
