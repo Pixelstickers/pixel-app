@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Fútbol</title>
+  <title>Animé</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
@@ -12,13 +12,6 @@
       background-color: #fffaf5;
       color: #4a2e1c;
     }
-
-    h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 48px;
-      margin: 0;
-    }
-
     header {
       background-image: url('../header_zorro.png');
       background-repeat: no-repeat;
@@ -32,19 +25,15 @@
       text-align: center;
       color: #fff;
       padding: 0 20px;
-      position: relative;
     }
-
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 48px;
+    }
     nav {
       margin-top: 120px;
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
     }
-
-    nav a,
-    .categorias-btn {
+    .boton {
       text-decoration: none;
       color: white;
       font-weight: bold;
@@ -53,60 +42,49 @@
       border-radius: 20px;
       margin: 5px;
       font-family: 'Quicksand', sans-serif;
-      border: none;
+      display: inline-block;
       cursor: pointer;
     }
-
-    .dropdown {
-      position: relative;
-    }
-
-    .menu-dropdown {
+    #categoriasMenu {
       display: none;
       position: absolute;
-      top: 100%;
-      left: 0;
+      top: 170px;
       background-color: #fffaf5;
-      border: 2px solid #ff914d;
+      border: 1px solid #ddd;
       border-radius: 10px;
-      padding: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-      z-index: 998;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 999;
     }
-
-    .menu-dropdown a {
-      padding: 8px 12px;
-      text-decoration: none;
-      color: #4a2e1c;
-      font-weight: bold;
+    #categoriasMenu a {
       display: block;
-      border-bottom: 1px solid #e6d4c4;
+      padding: 10px 20px;
+      color: #4a2e1c;
+      text-decoration: none;
+      border-bottom: 1px solid #eee;
     }
-
-    .menu-dropdown a:last-child {
+    #categoriasMenu a:last-child {
       border-bottom: none;
     }
-
-    .menu-dropdown a:hover {
+    #categoriasMenu a:hover {
       background-color: #ffe1c4;
-      border-radius: 6px;
     }
-
+    section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
     h2 {
       color: #ff914d;
       font-size: 26px;
       text-align: center;
-      margin: 40px 0 30px;
+      margin-bottom: 30px;
     }
-
     .galeria {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
-      padding: 0 20px;
     }
-
     .item {
       background-color: #fff;
       border-radius: 10px;
@@ -115,18 +93,15 @@
       text-align: center;
       width: 220px;
     }
-
     .item img {
       width: 100%;
       border-radius: 6px;
     }
-
     .codigo {
       margin: 8px 0;
       font-weight: bold;
       color: #7a4c2f;
     }
-
     button {
       background-color: #ff914d;
       border: none;
@@ -135,11 +110,9 @@
       border-radius: 8px;
       cursor: pointer;
     }
-
     button:hover {
       background-color: #e77c33;
     }
-
     #carritoBtn {
       position: fixed;
       top: 20px;
@@ -154,7 +127,6 @@
       cursor: pointer;
       z-index: 1000;
     }
-
     #panelPedido {
       display: none;
       position: fixed;
@@ -168,13 +140,11 @@
       width: 300px;
       z-index: 999;
     }
-
     #panelPedido textarea {
       width: 100%;
       height: 100px;
       font-size: 14px;
     }
-
     footer {
       background-color: #e6d4c4;
       text-align: center;
@@ -188,25 +158,23 @@
   <header>
     <h1>Pixel</h1>
     <nav>
-      <a href="../../index.html">Inicio</a>
-      <div class="dropdown">
-        <a href="javascript:void(0);" onclick="toggleCategorias()" class="boton">Categorías</a>
-        <div id="menuDropdown" class="menu-dropdown">
-          <a href="../categorias/futbol.html">Fútbol</a>
-          <a href="../categorias/anime.html">Animé</a>
-          <a href="../categorias/amor.html">Amor</a>
-        </div>
-      </div>
-      <a href="https://pixelstickers.empretienda.com.ar/">Tienda Online</a>
-      <a href="../nosotros.html">Nosotros</a>
+      <a href="../../index.html" class="boton">Inicio</a>
+      <a href="javascript:void(0);" class="boton" onclick="toggleCategorias()">Categorías</a>
+      <a href="https://pixelstickers.empretienda.com.ar/" class="boton">Tienda Online</a>
+      <a href="../nosotros.html" class="boton">Nosotros</a>
     </nav>
+    <div id="categoriasMenu">
+      <a href="anime.html">Animé</a>
+      <a href="anime.html">Animé</a>
+      <a href="amor.html">Amor</a>
+    </div>
   </header>
 
   <section>
-    <h2>Fútbol</h2>
+    <h2>Animé</h2>
     <div class="galeria">
       <div class="item">
-        <img src="../imagenes/Sticker 1.jpg" alt="Sticker Fútbol 1">
+        <img src="../imagenes/Sticker 1.jpg" alt="Sticker Animé 1">
         <p class="codigo">FU-00001</p>
         <button onclick="agregarAlPedido('FU-00001')">Agregar al pedido</button>
       </div>
@@ -233,11 +201,11 @@
     function agregarAlPedido(codigo) {
       if (!pedido.includes(codigo)) {
         pedido.push(codigo);
-        guardarYActualizar();
+        actualizarLista();
       }
     }
 
-    function guardarYActualizar() {
+    function actualizarLista() {
       localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
       document.getElementById("listaPedido").value = pedido.join(", ");
       document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
@@ -252,21 +220,25 @@
 
     function borrarPedido() {
       pedido = [];
-      guardarYActualizar();
+      actualizarLista();
       togglePedido(false);
     }
 
     function togglePedido(forceClose = null) {
       const panel = document.getElementById("panelPedido");
-      panel.style.display = forceClose !== null ? (forceClose ? "block" : "none") : (panel.style.display === "none" ? "block" : "none");
+      if (forceClose !== null) {
+        panel.style.display = forceClose ? "block" : "none";
+      } else {
+        panel.style.display = panel.style.display === "none" ? "block" : "none";
+      }
     }
 
-    function toggleMenu() {
-      const menu = document.getElementById("menuDropdown");
+    function toggleCategorias() {
+      const menu = document.getElementById("categoriasMenu");
       menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
 
-    window.onload = guardarYActualizar;
+    window.onload = actualizarLista;
   </script>
 </body>
 </html>
