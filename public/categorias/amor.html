@@ -11,10 +11,6 @@
       background-color: #fffaf5;
       color: #4a2e1c;
     }
-    h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 48px;
-    }
     header {
       background-image: url('../header_zorro.png');
       background-repeat: no-repeat;
@@ -29,23 +25,69 @@
       color: #fff;
       padding: 0 20px;
     }
-    nav {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 48px;
     }
-    nav a, .dropbtn {
+    nav {
+      margin-top: 120px;
+    }
+    nav a {
       text-decoration: none;
       color: white;
       font-weight: bold;
       background-color: #ff914d;
       padding: 10px 20px;
       border-radius: 20px;
-      font-family: 'Quicksand', sans-serif;
+      margin: 5px;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      color: #ff914d;
+      font-size: 26px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .item {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 150px; /* antes 220px */
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+    .item img {
+      width: 100%;
+      border-radius: 6px;
+    }
+    .codigo {
+      margin: 8px 0;
+      font-weight: bold;
+      color: #7a4c2f;
+    }
+    button.agregar {
+      background-color: #ff914d;
       border: none;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
       cursor: pointer;
-      display: inline-block;
+      font-family: 'Quicksand', sans-serif;
+    }
+    button.agregar:hover {
+      background-color: #e77c33;
     }
     .dropdown {
     position: relative;
@@ -91,55 +133,7 @@
   .dropdown-content a:hover {
     background-color: #ffe1c4;
   }
-    h2 {
-      text-align: center;
-      color: #ff914d;
-      margin-top: 40px;
-    }
-    .galeria {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin: 20px;
-    }
-    .item {
-      background-color: #fff;
-      border-radius: 10px;
-      padding: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      text-align: center;
-      width: 150px; /* antes 220px */
-      flex-grow: 0;
-      flex-shrink: 0;
-    }
-    .item img {
-      width: 100%;
-      border-radius: 6px;
-    }
-    .codigo {
-      margin: 8px 0;
-      font-weight: bold;
-      color: #7a4c2f;
-    }
-    button.agregar {
-      background-color: #ff914d;
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button.agregar:hover {
-      background-color: #e77c33;
-    }
-    footer {
-      background-color: #e6d4c4;
-      text-align: center;
-      padding: 20px;
-      font-family: 'Quicksand', sans-serif;
-      margin-top: 60px;
-    }
+
     #carritoBtn {
       position: fixed;
       top: 20px;
@@ -154,6 +148,7 @@
       cursor: pointer;
       z-index: 1000;
     }
+
     #panelPedido {
       display: none;
       position: fixed;
@@ -164,13 +159,40 @@
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      width: 300px;
+      width: 320px;
       z-index: 999;
     }
+
     #panelPedido textarea {
       width: 100%;
       height: 100px;
       font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .btn-contacto {
+      display: block;
+      margin: 8px 0;
+      padding: 10px;
+      text-align: center;
+      border-radius: 10px;
+      background-color: #ff914d;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn-contacto:hover {
+      background-color: #e77c33;
+    }
+
+    footer {
+      background-color: #e6d4c4;
+      text-align: center;
+      padding: 20px;
+      font-family: 'Quicksand', sans-serif;
+      margin-top: 60px;
     }
   </style>
 </head>
@@ -211,16 +233,19 @@
       <p class="codigo">AM-00001</p>
       <button class="agregar" onclick="agregarAlPedido('AM-00001')">Agregar al pedido</button>
     </div>
-  </section>
+</section>
 
   <button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
 
   <div id="panelPedido">
     <h3>Tu pedido</h3>
-    <p>Copiá los códigos de los productos que te gusten y mandalos por WhatsApp, Instagram o en la tienda online.:</p>
+    <p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online.</p>
     <textarea id="listaPedido" readonly></textarea><br>
     <button onclick="copiarPedido()">Copiar</button>
     <button onclick="borrarPedido()">Borrar todo</button>
+    <a class="btn-contacto" href="https://wa.me/5493764297950" target="_blank">Enviar por WhatsApp</a>
+    <a class="btn-contacto" href="https://www.instagram.com/pixel.stickerss" target="_blank">Enviar por Instagram</a>
+    <a class="btn-contacto" href="https://pixelstickers.empretienda.com.ar/" target="_blank">Ir a la Tienda Online</a>
   </div>
 
   <footer>
