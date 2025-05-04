@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Naturaleza</title>
+  <title>Gatitos</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
@@ -10,6 +10,10 @@
       font-family: 'Quicksand', sans-serif;
       background-color: #fffaf5;
       color: #4a2e1c;
+    }
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 48px;
     }
     header {
       background-image: url('../header_zorro.png');
@@ -25,46 +29,69 @@
       color: #fff;
       padding: 0 20px;
     }
-    h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 48px;
-    }
     nav {
-      margin-top: 120px;
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
     }
-    nav a {
+    nav a, .dropbtn {
       text-decoration: none;
       color: white;
       font-weight: bold;
       background-color: #ff914d;
       padding: 10px 20px;
       border-radius: 20px;
-      margin: 5px;
+      font-family: 'Quicksand', sans-serif;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
     }
-    section {
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 45px;
+      left: 0;
+      background-color: #fffaf5;
+      border-radius: 10px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      min-width: 140px;
+      z-index: 999;
+      padding: 10px 0;
+    }
+    .dropdown-content a {
+      color: #4a2e1c;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+      font-family: 'Quicksand', sans-serif;
+    }
+    .dropdown-content a:hover {
+      background-color: #ffe1c4;
     }
     h2 {
-      color: #ff914d;
-      font-size: 26px;
       text-align: center;
-      margin-bottom: 30px;
+      color: #ff914d;
+      margin-top: 40px;
     }
     .galeria {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
       justify-content: center;
+      gap: 30px;
+      margin: 20px;
     }
     .item {
+      width: 220px;
       background-color: #fff;
       border-radius: 10px;
-      padding: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 10px;
       text-align: center;
-      width: 220px;
     }
     .item img {
       width: 100%;
@@ -77,61 +104,22 @@
     }
     button.agregar {
       background-color: #ff914d;
-      border: none;
       color: white;
+      border: none;
       padding: 8px 16px;
       border-radius: 8px;
       cursor: pointer;
-      font-family: 'Quicksand', sans-serif;
     }
     button.agregar:hover {
       background-color: #e77c33;
     }
-    .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
-  .dropbtn {
-    line-height: 24px;
-    background-color: #ff914d;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    font-family: 'Quicksand', sans-serif;
-    margin: 5px;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fffaf5;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    border-radius: 10px;
-    z-index: 999;
-    top: 50px;
-  }
-
-  .dropdown-content a {
-    color: #4a2e1c;
-    padding: 10px 15px;
-    text-decoration: none;
-    display: block;
-    border-bottom: 1px solid #e6d4c4;
-  }
-
-  .dropdown-content a:last-child {
-    border-bottom: none;
-  }
-
-  .dropdown-content a:hover {
-    background-color: #ffe1c4;
-  }
-
+    footer {
+      background-color: #e6d4c4;
+      text-align: center;
+      padding: 20px;
+      font-family: 'Quicksand', sans-serif;
+      margin-top: 60px;
+    }
     #carritoBtn {
       position: fixed;
       top: 20px;
@@ -146,7 +134,6 @@
       cursor: pointer;
       z-index: 1000;
     }
-
     #panelPedido {
       display: none;
       position: fixed;
@@ -157,40 +144,13 @@
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      width: 320px;
+      width: 300px;
       z-index: 999;
     }
-
     #panelPedido textarea {
       width: 100%;
       height: 100px;
       font-size: 14px;
-      margin-bottom: 10px;
-    }
-
-    .btn-contacto {
-      display: block;
-      margin: 8px 0;
-      padding: 10px;
-      text-align: center;
-      border-radius: 10px;
-      background-color: #ff914d;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-
-    .btn-contacto:hover {
-      background-color: #e77c33;
-    }
-
-    footer {
-      background-color: #e6d4c4;
-      text-align: center;
-      padding: 20px;
-      font-family: 'Quicksand', sans-serif;
-      margin-top: 60px;
     }
   </style>
 </head>
@@ -200,7 +160,7 @@
     <nav>
       <a href="../../index.html">Inicio</a>
       <div class="dropdown">
-        <button onclick="toggleDropdown()" class="dropbtn">Categorías</button>
+        <button class="dropbtn" onclick="toggleDropdown()">Categorías</button>
         <div id="dropdownMenu" class="dropdown-content">
           <a href="amor.html">Amor</a>
           <a href="animales.html">Animales</a>
@@ -210,10 +170,10 @@
           <a href="dibujos.html">Dibujos</a>
           <a href="frases.html">Frases</a>
           <a href="futbol.html">Fútbol</a>
-          <a href="gatos.html">Gatitos</a>
           <a href="laseleccion.html">La selección</a>
           <a href="libros.html">Libros</a>
           <a href="música.html">Música</a>
+          <a href="naturaleza.html">Naturaleza</a>
           <a href="series.html">Series</a>
           <a href="viajes.html">Viajes</a>
         </div>
@@ -223,26 +183,23 @@
     </nav>
   </header>
 
-  <h2>Naturaleza</h2>
+  <h2>Amor</h2>
   <section class="galeria">
     <div class="item">
-<img src="../imagenes/placeholder.png" alt="Sticker">
-<p class="codigo">{CODIGO}</p>
-<button class="agregar" onclick="agregarAlPedido('{CODIGO}')">Agregar al pedido</button>
-</div>
-</section>
+      <img src="../imagenes/Sticker 1.jpg" alt="Sticker gatito">
+      <p class="codigo">GA-00001</p>
+      <button class="agregar" onclick="agregarAlPedido('GA-00001')">Agregar al pedido</button>
+    </div>
+  </section>
 
   <button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
 
   <div id="panelPedido">
     <h3>Tu pedido</h3>
-    <p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online.</p>
+    <p>Copiá los códigos de los productos que te gusten y mandalos por WhatsApp, Instagram o en la tienda online.:</p>
     <textarea id="listaPedido" readonly></textarea><br>
     <button onclick="copiarPedido()">Copiar</button>
     <button onclick="borrarPedido()">Borrar todo</button>
-    <a class="btn-contacto" href="https://wa.me/5493764297950" target="_blank">Enviar por WhatsApp</a>
-    <a class="btn-contacto" href="https://www.instagram.com/pixel.stickerss" target="_blank">Enviar por Instagram</a>
-    <a class="btn-contacto" href="https://pixelstickers.empretienda.com.ar/" target="_blank">Ir a la Tienda Online</a>
   </div>
 
   <footer>
@@ -252,17 +209,17 @@
   <script>
     let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || [];
 
-    function guardarYActualizar() {
-      localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
-      document.getElementById("listaPedido").value = pedido.join(", ");
-      document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
-    }
-
     function agregarAlPedido(codigo) {
       if (!pedido.includes(codigo)) {
         pedido.push(codigo);
-        guardarYActualizar();
+        localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
+        actualizarLista();
       }
+    }
+
+    function actualizarLista() {
+      document.getElementById("listaPedido").value = pedido.join(", ");
+      document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
     }
 
     function copiarPedido() {
@@ -274,35 +231,22 @@
 
     function borrarPedido() {
       pedido = [];
-      guardarYActualizar();
+      localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
+      actualizarLista();
       togglePedido(false);
     }
 
     function togglePedido(forceClose = null) {
       const panel = document.getElementById("panelPedido");
-      if (forceClose !== null) {
-        panel.style.display = forceClose ? "block" : "none";
-      } else {
-        panel.style.display = panel.style.display === "none" ? "block" : "none";
-      }
+      panel.style.display = (forceClose !== null) ? (forceClose ? "block" : "none") : (panel.style.display === "none" ? "block" : "none");
     }
-
-    window.onload = guardarYActualizar;
 
     function toggleDropdown() {
-    const menu = document.getElementById("dropdownMenu");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
-  }
-
-  // Cierra el menú si se hace clic fuera
-  window.addEventListener("click", function (e) {
-    const menu = document.getElementById("dropdownMenu");
-    if (!e.target.matches('.dropbtn')) {
-      if (menu.style.display === "block") {
-        menu.style.display = "none";
-      }
+      const dropdown = document.getElementById("categoriaDropdown");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
     }
-  });
+
+    window.onload = actualizarLista;
   </script>
 </body>
 </html>
