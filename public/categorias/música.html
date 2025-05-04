@@ -64,7 +64,9 @@
       padding: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       text-align: center;
-      width: 220px;
+      width: 150px; /* antes 220px */
+      flex-grow: 0;
+      flex-shrink: 0;
     }
     .item img {
       width: 100%;
@@ -227,10 +229,10 @@
   <h2>Música</h2>
   <section class="galeria">
     <div class="item">
-<img src="../imagenes/placeholder.png" alt="Sticker">
-<p class="codigo">{CODIGO}</p>
-<button class="agregar" onclick="agregarAlPedido('{CODIGO}')">Agregar al pedido</button>
-</div>
+      <img src="../imagenes/MU-00001.png" alt="Sticker Música">
+      <p class="codigo">MU-00001</p>
+      <button class="agregar" onclick="agregarAlPedido('MU-00001')">Agregar al pedido</button>
+    </div>
 </section>
 
   <button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
