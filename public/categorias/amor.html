@@ -212,17 +212,17 @@
   <script>
     let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || [];
 
+    function guardarYActualizar() {
+      localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
+      document.getElementById("listaPedido").value = pedido.join(", ");
+      document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
+    }
+
     function agregarAlPedido(codigo) {
       if (!pedido.includes(codigo)) {
         pedido.push(codigo);
-        localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
-        actualizarLista();
+        guardarYActualizar();
       }
-    }
-
-    function actualizarLista() {
-      document.getElementById("listaPedido").value = pedido.join(", ");
-      document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
     }
 
     function copiarPedido() {
@@ -234,22 +234,35 @@
 
     function borrarPedido() {
       pedido = [];
-      localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
-      actualizarLista();
+      guardarYActualizar();
       togglePedido(false);
     }
 
     function togglePedido(forceClose = null) {
       const panel = document.getElementById("panelPedido");
-      panel.style.display = (forceClose !== null) ? (forceClose ? "block" : "none") : (panel.style.display === "none" ? "block" : "none");
+      if (forceClose !== null) {
+        panel.style.display = forceClose ? "block" : "none";
+      } else {
+        panel.style.display = panel.style.display === "none" ? "block" : "none";
+      }
     }
+
+    window.onload = guardarYActualizar;
 
     function toggleDropdown() {
-      const dropdown = document.getElementById("categoriaDropdown");
-      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-    }
+    const menu = document.getElementById("dropdownMenu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  }
 
-    window.onload = actualizarLista;
+  // Cierra el menú si se hace clic fuera
+  window.addEventListener("click", function (e) {
+    const menu = document.getElementById("dropdownMenu");
+    if (!e.target.matches('.dropbtn')) {
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+      }
+    }
+  });
   </script>
 </body>
 </html>
