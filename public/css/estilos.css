@@ -1,19 +1,4 @@
-let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || {};
-
-function guardarYActualizar() {
-  localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
-  const lista = Object.entries(pedido)
-    .map(([codigo, cantidad]) => `${codigo} x${cantidad}`)
-    .join("\n");
-
-  document.getElementById("listaPedido").value = lista;
-  const total = Object.values(pedido).reduce((a, b) => a + b, 0);
-  document.getElementById("carritoBtn").innerText = `🛍️ Pedido (${total})`;
-}
-
-function agregarAlPedido(codigo) {
-  pedido[codigo] = (pedido[codigo] || 0) + 1;
-  guardarYActualizar();body {
+body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
     background-color: #fffaf5;
