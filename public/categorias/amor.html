@@ -216,15 +216,47 @@
       font-family: 'Quicksand', sans-serif;
       margin-top: 60px;
     }
-    @media (max-width: 480px) {
-      nav a {
-        padding: 10px 14px;
-        font-size: 14px;
-      }
-      .categoria {
-        width: 100%;
-      }
-    }    
+    @media screen and (max-width: 768px) {
+  header {
+    height: 200px;
+    background-position: center top;
+  }
+
+  nav {
+    margin-top: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a, .dropbtn {
+    padding: 8px 14px;
+    margin: 4px;
+    font-size: 14px;
+  }
+
+  .item {
+    width: 45%;
+    margin-bottom: 20px;
+  }
+
+  #carritoBtn {
+    top: 15px;
+    right: 15px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  #panelPedido {
+    width: 90%;
+    top: 70px;
+    right: 5%;
+  }
+
+  footer {
+    font-size: 14px;
+  }
+}    
   </style>
 </head>
 
