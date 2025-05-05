@@ -1,8 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pixel</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap" rel="stylesheet">
   <style>
@@ -16,6 +16,7 @@
     h1 {
       font-family: 'Dancing Script', cursive;
       font-size: 48px;
+      margin: 0;
     }
     header {
       background-image: url('public/header_zorro.png');
@@ -31,8 +32,12 @@
       color: #fff;
       padding: 0 20px;
     }
-    header nav {
+    nav {
       margin-top: 120px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
     }
     nav a {
       text-decoration: none;
@@ -41,67 +46,64 @@
       background-color: #ff914d;
       padding: 10px 20px;
       border-radius: 20px;
-      margin: 5px;
       font-family: 'Quicksand', sans-serif;
+      white-space: nowrap;
     }
     h2 {
       text-align: center;
       color: #ff914d;
-      margin-top: 40px;
+      margin: 40px 0 20px;
     }
     .categorias {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 40px;
-      margin: 40px auto;
-      max-width: 1200px;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 30px;
+      margin: 0 auto 40px;
+      max-width: 1100px;
       padding: 0 20px;
       justify-items: center;
     }
-
     .categoria {
       text-align: center;
       text-decoration: none;
       color: #4a2e1c;
       background-color: #fff;
-      padding: 20px;
+      padding: 15px;
       border-radius: 10px;
-      width: 200px;
+      width: 160px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
     }
-
     .categoria:hover {
       transform: scale(1.05);
     }
-
     .categoria img {
       width: 100%;
-      max-height: 140px;
+      height: auto;
+      max-height: 130px;
       object-fit: contain;
-      border-radius: 8px;
       margin-bottom: 10px;
     }
-
     .categoria p {
-      background-color: #ff914d;
-      color: white;
-      padding: 10px;
-      border-radius: 8px;
-      margin: 0;
       font-weight: bold;
       font-size: 16px;
+      background-color: #ff914d;
+      color: white;
+      padding: 8px 10px;
+      border-radius: 12px;
+      margin: 0;
     }
-
     footer {
       background-color: #e6d4c4;
       text-align: center;
-      bottom: 0;
       padding: 4px;
-      margin-top: 100px;
       font-family: 'Quicksand', sans-serif;
+      margin-top: 80px;
     }
-
     #carritoBtn {
       position: fixed;
       top: 20px;
@@ -116,7 +118,6 @@
       cursor: pointer;
       z-index: 1000;
     }
-
     #panelPedido {
       display: none;
       position: fixed;
@@ -127,32 +128,23 @@
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      width: 320px;
+      width: 300px;
       z-index: 999;
     }
-
     #panelPedido textarea {
       width: 100%;
       height: 100px;
       font-size: 14px;
-      margin-bottom: 10px;
     }
 
-    .btn-contacto {
-      display: block;
-      margin: 8px 0;
-      padding: 10px;
-      text-align: center;
-      border-radius: 10px;
-      background-color: #ff914d;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-
-    .btn-contacto:hover {
-      background-color: #e77c33;
+    @media (max-width: 480px) {
+      nav a {
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+      .categoria {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -165,148 +157,119 @@
       <a href="public/nosotros.html">Nosotros</a>
     </nav>
   </header>
-<h2>Categoría de Stickers</h2>
-<main>
-<div class="categorias">
-<a class="categoria" href="public/categorias/amor.html">
-<img alt="Amor" src="public/imagenes/amor.png"/>
-<p>Amor</p>
-</a>
-<a class="categoria" href="public/categorias/animales.html">
-<img alt="Animales" src="public/imagenes/animales.png"/>
-<p>Animales</p>
-</a>
-<a class="categoria" href="public/categorias/bebidas.html">
-<img alt="Bebidas" src="public/imagenes/bebidas.png"/>
-<p>Bebidas</p>
-</a>
-<a class="categoria" href="public/categorias/cine.html">
-<img alt="Cine" src="public/imagenes/cine.png"/>
-<p>Cine</p>
-</a>
-<a class="categoria" href="public/categorias/comida.html">
-<img alt="Comida" src="public/imagenes/comida.png"/>
-<p>Comida</p>
-</a>
-<a class="categoria" href="public/categorias/frases.html">
-<img alt="Frases" src="public/imagenes/frases.png"/>
-<p>Frases</p>
-</a>
-<a class="categoria" href="public/categorias/futbol.html">
-<img alt="Fútbol" src="public/imagenes/futbol.png"/>
-<p>Fútbol</p>
-</a>
-<a class="categoria" href="public/categorias/gatos.html">
-<img alt="Gatitos" src="public/imagenes/gatos.png"/>
-<p>Gatitos</p>
-</a>
-<a class="categoria" href="public/categorias/harrypotter.html">
-<img alt="harrypotter" src="public/imagenes/harrypotter.png"/>
-<p>Harry Potter</p>
-</a>
-<a class="categoria" href="public/categorias/laseleccion.html">
-<img alt="La Selección" src="public/imagenes/laseleccion.png"/>
-<p>La Selección</p>
-</a>
-</a>
-<a class="categoria" href="public/categorias/libros.html">
-<img alt="Libros" src="public/imagenes/libros.png"/>
-<p>Libros</p>
-</a>
-</a>
-<a class="categoria" href="public/categorias/música.html">
-<img alt="Música" src="public/imagenes/musica.png"/>
-<p>Música</p>
-</a>
-</a>
-<a class="categoria" href="public/categorias/naturaleza.html">
-<img alt="Naturaleza" src="public/imagenes/naturaleza.png"/>
-<p>Naturaleza</p>
-</a>
-</a>
-<a class="categoria" href="public/categorias/series.html">
-<img alt="Series" src="public/imagenes/series.png"/>
-<p>Series</p>
-</a>
-</a>
-<a class="categoria" href="public/categorias/viajes.html">
-<img alt="Viajes" src="public/imagenes/viajes.png"/>
-<p>Viajes</p>
-</a>
-</div>
-</section>
 
-<button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
+  <h2>Categoría de Stickers</h2>
+  <main>
+    <div class="categorias">
+      <a href="public/categorias/amor.html" class="categoria">
+        <img src="public/imagenes/amor.png" alt="Amor">
+        <p>Amor</p>
+      </a>
+      <a href="public/categorias/animales.html" class="categoria">
+        <img src="public/imagenes/animales.png" alt="Animales">
+        <p>Animales</p>
+      </a>
+      <a href="public/categorias/bebidas.html" class="categoria">
+        <img src="public/imagenes/bebidas.png" alt="Bebidas">
+        <p>Bebidas</p>
+      </a>
+      <a href="public/categorias/cine.html" class="categoria">
+        <img src="public/imagenes/cine.png" alt="Cine">
+        <p>Cine</p>
+      </a>
+      <a href="public/categorias/comida.html" class="categoria">
+        <img src="public/imagenes/comida.png" alt="Comida">
+        <p>Comida</p>
+      </a>
+      <a href="public/categorias/dibujos.html" class="categoria">
+        <img src="public/imagenes/dibujos.png" alt="Dibujos">
+        <p>Dibujos</p>
+      </a>
+      <a href="public/categorias/frases.html" class="categoria">
+        <img src="public/imagenes/frases.png" alt="Frases">
+        <p>Frases</p>
+      </a>
+      <a href="public/categorias/futbol.html" class="categoria">
+        <img src="public/imagenes/futbol.png" alt="Fútbol">
+        <p>Fútbol</p>
+      </a>
+      <a href="public/categorias/gatos.html" class="categoria">
+        <img src="public/imagenes/gatos.png" alt="Gatitos">
+        <p>Gatitos</p>
+      </a>
+      <a href="public/categorias/laseleccion.html" class="categoria">
+        <img src="public/imagenes/laseleccion.png" alt="La Selección">
+        <p>La Selección</p>
+      </a>
+      <a href="public/categorias/libros.html" class="categoria">
+        <img src="public/imagenes/libros.png" alt="Libros">
+        <p>Libros</p>
+      </a>
+      <a href="public/categorias/musica.html" class="categoria">
+        <img src="public/imagenes/musica.png" alt="Música">
+        <p>Música</p>
+      </a>
+      <a href="public/categorias/naturaleza.html" class="categoria">
+        <img src="public/imagenes/naturaleza.png" alt="Naturaleza">
+        <p>Naturaleza</p>
+      </a>
+      <a href="public/categorias/series.html" class="categoria">
+        <img src="public/imagenes/series.png" alt="Series">
+        <p>Series</p>
+      </a>
+      <a href="public/categorias/viajes.html" class="categoria">
+        <img src="public/imagenes/viajes.png" alt="Viajes">
+        <p>Viajes</p>
+      </a>
+    </div>
+  </main>
 
-<div id="panelPedido">
-  <h3>Tu pedido</h3>
-  <p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online.</p>
-  <textarea id="listaPedido" readonly></textarea><br>
-  <button onclick="copiarPedido()">Copiar</button>
-  <button onclick="borrarPedido()">Borrar todo</button>
-  <a class="btn-contacto" href="https://wa.me/5493764297950" target="_blank">Enviar por WhatsApp</a>
-  <a class="btn-contacto" href="https://www.instagram.com/pixel.stickerss" target="_blank">Enviar por Instagram</a>
-  <a class="btn-contacto" href="https://pixelstickers.empretienda.com.ar/" target="_blank">Ir a la Tienda Online</a>
-</div>
+  <button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
 
-<footer>
-  <p>&copy; 2025 Pixel Stickers | @pixel.stickerss</p>
-</footer>
+  <div id="panelPedido">
+    <h3>Tu pedido</h3>
+    <p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online:</p>
+    <textarea id="listaPedido" readonly></textarea><br>
+    <button onclick="copiarPedido()">Copiar</button>
+    <button onclick="borrarPedido()">Borrar todo</button>
+  </div>
 
-<script>
-  let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || [];
+  <footer>
+    <p>&copy; 2025 Pixel Stickers | @pixel.stickerss</p>
+  </footer>
 
-  function guardarYActualizar() {
-    localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
-    document.getElementById("listaPedido").value = pedido.join(", ");
-    document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
-  }
+  <script>
+    let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || [];
 
-  function agregarAlPedido(codigo) {
-    if (!pedido.includes(codigo)) {
-      pedido.push(codigo);
+    function guardarYActualizar() {
+      localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
+      document.getElementById("listaPedido").value = pedido.join(", ");
+      document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
+    }
+
+    function copiarPedido() {
+      const textarea = document.getElementById("listaPedido");
+      textarea.select();
+      document.execCommand("copy");
+      alert("¡Códigos copiados!");
+    }
+
+    function borrarPedido() {
+      pedido = [];
       guardarYActualizar();
+      togglePedido(false);
     }
-  }
 
-  function copiarPedido() {
-    const textarea = document.getElementById("listaPedido");
-    textarea.select();
-    document.execCommand("copy");
-    alert("¡Códigos copiados!");
-  }
-
-  function borrarPedido() {
-    pedido = [];
-    guardarYActualizar();
-    togglePedido(false);
-  }
-
-  function togglePedido(forceClose = null) {
-    const panel = document.getElementById("panelPedido");
-    if (forceClose !== null) {
-      panel.style.display = forceClose ? "block" : "none";
-    } else {
-      panel.style.display = panel.style.display === "none" ? "block" : "none";
+    function togglePedido(forceClose = null) {
+      const panel = document.getElementById("panelPedido");
+      if (forceClose !== null) {
+        panel.style.display = forceClose ? "block" : "none";
+      } else {
+        panel.style.display = panel.style.display === "none" ? "block" : "none";
+      }
     }
-  }
 
-  window.onload = guardarYActualizar;
-
-  function toggleDropdown() {
-  const menu = document.getElementById("dropdownMenu");
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
-
-// Cierra el menú si se hace clic fuera
-window.addEventListener("click", function (e) {
-  const menu = document.getElementById("dropdownMenu");
-  if (!e.target.matches('.dropbtn')) {
-    if (menu.style.display === "block") {
-      menu.style.display = "none";
-    }
-  }
-});
-</script>
+    window.onload = guardarYActualizar;
+  </script>
 </body>
 </html>
