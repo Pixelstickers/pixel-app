@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Viajes</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<title>Viajes</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&amp;family=Quicksand&amp;display=swap" rel="stylesheet"/>
+<style>
     body {
       margin: 0;
       font-family: 'Quicksand', sans-serif;
@@ -197,62 +198,57 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>Pixel</h1>
-    <nav>
-      <a href="../../index.html">Inicio</a>
-      <div class="dropdown">
-        <button onclick="toggleDropdown()" class="dropbtn">Categorías</button>
-        <div id="dropdownMenu" class="dropdown-content">
-          <a href="amor.html">Amor</a>
-          <a href="animales.html">Animales</a>
-          <a href="bebidas.html">Bebidas</a>
-          <a href="cine.html">Cine</a>
-          <a href="comida.html">Comida</a>
-          <a href="disney.html">Disney</a>
-          <a href="frases.html">Frases</a>
-          <a href="futbol.html">Fútbol</a>
-          <a href="gatos.html">Gatitos</a>
-          <a href="harrypotter.html">harrypotter</a>
-          <a href="laseleccion.html">La selección</a>
-          <a href="libros.html">Libros</a>
-          <a href="música.html">Música</a>
-          <a href="naturaleza.html">Naturaleza</a>
-          <a href="series.html">Series</a>
-        </div>
-      </div>
-      <a href="https://pixelstickers.empretienda.com.ar/">Tienda Online</a>
-      <a href="../nosotros.html">Nosotros</a>
-    </nav>
-  </header>
-
-  <h2>Viajes</h2>
-  <section class="galeria">
-    <div class="item">
-      <img src="../imagenes/VI-00001.png" alt="Sticker Viajes">
-      <p class="codigo">VI-00001</p>
-      <button class="agregar" onclick="agregarAlPedido('VI-00001')">Agregar al pedido</button>
-    </div>
+<header>
+<h1>Pixel</h1>
+<nav>
+<a href="../../index.html">Inicio</a>
+<div class="dropdown">
+<button class="dropbtn" onclick="toggleDropdown()">Categorías</button>
+<div class="dropdown-content" id="dropdownMenu">
+<a href="amor.html">Amor</a>
+<a href="animales.html">Animales</a>
+<a href="bebidas.html">Bebidas</a>
+<a href="cine.html">Cine</a>
+<a href="comida.html">Comida</a>
+<a href="disney.html">Disney</a>
+<a href="frases.html">Frases</a>
+<a href="futbol.html">Fútbol</a>
+<a href="gatos.html">Gatitos</a>
+<a href="harrypotter.html">Harry Potter</a>
+<a href="laseleccion.html">La selección</a>
+<a href="libros.html">Libros</a>
+<a href="música.html">Música</a>
+<a href="naturaleza.html">Naturaleza</a>
+<a href="series.html">Series</a>
+</div>
+</div>
+<a href="https://pixelstickers.empretienda.com.ar/">Tienda Online</a>
+<a href="../nosotros.html">Nosotros</a>
+</nav>
+</header>
+<h2>Viajes</h2>
+<section class="galeria">
+<div class="item">
+<img alt="Sticker Viajes" onclick="mostrarImagen(this.src)" src="../imagenes/VI-00001.png" style="cursor: zoom-in; background: white; padding: 4px; border-radius: 8px;"/>
+<p class="codigo">VI-00001</p>
+<button class="agregar" onclick="agregarAlPedido('VI-00001')">Agregar al pedido</button>
+</div>
 </section>
-
-  <button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
-
-  <div id="panelPedido">
-    <h3>Tu pedido</h3>
-    <p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online.</p>
-    <textarea id="listaPedido" readonly></textarea><br>
-    <button onclick="copiarPedido()">Copiar</button>
-    <button onclick="borrarPedido()">Borrar todo</button>
-    <a class="btn-contacto" href="https://wa.me/5493764297950" target="_blank">Enviar por WhatsApp</a>
-    <a class="btn-contacto" href="https://www.instagram.com/pixel.stickerss" target="_blank">Enviar por Instagram</a>
-    <a class="btn-contacto" href="https://pixelstickers.empretienda.com.ar/" target="_blank">Ir a la Tienda Online</a>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Pixel Stickers | @pixel.stickerss</p>
-  </footer>
-
-  <script>
+<button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
+<div id="panelPedido">
+<h3>Tu pedido</h3>
+<p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online.</p>
+<textarea id="listaPedido" readonly=""></textarea><br/>
+<button onclick="copiarPedido()">Copiar</button>
+<button onclick="borrarPedido()">Borrar todo</button>
+<a class="btn-contacto" href="https://wa.me/5493764297950" target="_blank">Enviar por WhatsApp</a>
+<a class="btn-contacto" href="https://www.instagram.com/pixel.stickerss" target="_blank">Enviar por Instagram</a>
+<a class="btn-contacto" href="https://pixelstickers.empretienda.com.ar/" target="_blank">Ir a la Tienda Online</a>
+</div>
+<footer>
+<p>© 2025 Pixel Stickers | @pixel.stickerss</p>
+</footer>
+<script>
     let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || [];
 
     function guardarYActualizar() {
@@ -307,5 +303,23 @@
     }
   });
   </script>
-</body>
+
+<div id="imgModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+            background-color:rgba(0,0,0,0.8); z-index:2000; justify-content:center; align-items:center;">
+<div style="position:relative; max-width:90%; max-height:90%;">
+<img alt="Sticker ampliado" id="modalImg" src="" style="max-width:100%; max-height:100%; border-radius:10px; background:white;"/>
+<button onclick="cerrarImagen()" style="position:absolute; top:-10px; right:-10px; background:#ff914d; color:white; border:none; border-radius:50%; padding:10px; cursor:pointer;">X</button>
+</div>
+</div>
+<script>
+        function mostrarImagen(src) {
+          var modal = document.getElementById('imgModal');
+          var modalImg = document.getElementById('modalImg');
+          modal.style.display = 'flex';
+          modalImg.src = src;
+        }
+        function cerrarImagen() {
+          document.getElementById('imgModal').style.display = 'none';
+        }
+        </script></body>
 </html>
