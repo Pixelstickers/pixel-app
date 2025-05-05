@@ -147,78 +147,111 @@
       <a href="public/nosotros.html">Nosotros</a>
     </nav>
   </header>
-  <h2>Categoría de Stickers</h2>
-  <main>
-    <div class="categorias">
-      <a href="public/categorias/amor.html" class="categoria">
-        <img src="public/imagenes/amor.png" alt="Amor">
-        <p>Amor</p>
-      </a>
-      <a href="public/categorias/animales.html" class="categoria">
-        <img src="public/imagenes/animales.png" alt="Animales">
-        <p>Animales</p>
-      </a>
-      <a href="public/categorias/bebidas.html" class="categoria">
-        <img src="public/imagenes/bebidas.png" alt="Bebidas">
-        <p>Bebidas</p>
-      </a>
-      <a href="public/categorias/cine.html" class="categoria">
-        <img src="public/imagenes/cine.png" alt="Cine">
-        <p>Cine</p>
-      </a>
-      <a href="public/categorias/comida.html" class="categoria">
-        <img src="public/imagenes/comida.png" alt="Comida">
-        <p>Comida</p>
-      </a>
-    </div>
-  </main>
+<h2>Categoría de Stickers</h2>
+<main>
+<div class="categorias">
+<a class="categoria" href="public/categorias/amor.html">
+<img alt="Amor" src="public/imagenes/amor.png"/>
+<p>Amor</p>
+</a>
+<a class="categoria" href="public/categorias/animales.html">
+<img alt="Animales" src="public/imagenes/animales.png"/>
+<p>Animales</p>
+</a>
+<a class="categoria" href="public/categorias/bebidas.html">
+<img alt="Bebidas" src="public/imagenes/bebidas.png"/>
+<p>Bebidas</p>
+</a>
+<a class="categoria" href="public/categorias/cine.html">
+<img alt="Cine" src="public/imagenes/cine.png"/>
+<p>Cine</p>
+</a>
+<a class="categoria" href="public/categorias/comida.html">
+<img alt="Comida" src="public/imagenes/comida.png"/>
+<p>Comida</p>
+</a>
+<a class="categoria" href="public/categorias/dibujos.html">
+<img alt="Dibujos" src="public/imagenes/dibujos.png"/>
+<p>Dibujos</p>
+</a>
+<a class="categoria" href="public/categorias/frases.html">
+<img alt="Frases" src="public/imagenes/frases.png"/>
+<p>Frases</p>
+</a>
+<a class="categoria" href="public/categorias/futbol.html">
+<img alt="Fútbol" src="public/imagenes/futbol.png"/>
+<p>Fútbol</p>
+</a>
+<a class="categoria" href="public/categorias/gatos.html">
+<img alt="Gatitos" src="public/imagenes/gatos.png"/>
+<p>Gatitos</p>
+</a>
+<a class="categoria" href="public/categorias/laseleccion.html">
+<img alt="La Selección" src="public/imagenes/laseleccion.png"/>
+<p>La Selección</p>
+</a>
+</a>
+<a class="categoria" href="public/categorias/libros.html">
+<img alt="Libros" src="public/imagenes/libros.png"/>
+<p>Libros</p>
+</a>
+</a>
+<a class="categoria" href="public/categorias/música.html">
+<img alt="Música" src="public/imagenes/música.png"/>
+<p>Música</p>
+</a>
+</a>
+<a class="categoria" href="public/categorias/naturaleza.html">
+<img alt="Naturaleza" src="public/imagenes/naturaleza.png"/>
+<p>Naturaleza</p>
+</a>
+</a>
+<a class="categoria" href="public/categorias/series.html">
+<img alt="Series" src="public/imagenes/series.png"/>
+<p>Series</p>
+</a>
+</a>
+<a class="categoria" href="public/categorias/viajes.html">
+<img alt="Viajes" src="public/imagenes/viajes.png"/>
+<p>Viajes</p>
+</a>
+</div>
+<footer>
+  <p>&copy; 2025 Pixel Stickers | @pixel.stickerss</p>
+</footer>
 
-  <button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
+<script>
+  let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || [];
 
-  <div id="panelPedido">
-    <h3>Tu pedido</h3>
-    <p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online.:</p>
-    <textarea id="listaPedido" readonly></textarea><br>
-    <button onclick="copiarPedido()">Copiar</button>
-    <button onclick="borrarPedido()">Borrar todo</button>
-  </div>
+  function guardarYActualizar() {
+    localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
+    document.getElementById("listaPedido").value = pedido.join(", ");
+    document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
+  }
 
-  <footer>
-    <p>&copy; 2025 Pixel Stickers | @pixel.stickerss</p>
-  </footer>
+  function copiarPedido() {
+    const textarea = document.getElementById("listaPedido");
+    textarea.select();
+    document.execCommand("copy");
+    alert("¡Códigos copiados!");
+  }
 
-  <script>
-    let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || [];
+  function borrarPedido() {
+    pedido = [];
+    guardarYActualizar();
+    togglePedido(false);
+  }
 
-    function guardarYActualizar() {
-      localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
-      document.getElementById("listaPedido").value = pedido.join(", ");
-      document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
+  function togglePedido(forceClose = null) {
+    const panel = document.getElementById("panelPedido");
+    if (forceClose !== null) {
+      panel.style.display = forceClose ? "block" : "none";
+    } else {
+      panel.style.display = panel.style.display === "none" ? "block" : "none";
     }
+  }
 
-    function copiarPedido() {
-      const textarea = document.getElementById("listaPedido");
-      textarea.select();
-      document.execCommand("copy");
-      alert("¡Códigos copiados!");
-    }
-
-    function borrarPedido() {
-      pedido = [];
-      guardarYActualizar();
-      togglePedido(false);
-    }
-
-    function togglePedido(forceClose = null) {
-      const panel = document.getElementById("panelPedido");
-      if (forceClose !== null) {
-        panel.style.display = forceClose ? "block" : "none";
-      } else {
-        panel.style.display = panel.style.display === "none" ? "block" : "none";
-      }
-    }
-
-    window.onload = guardarYActualizar;
-  </script>
+  window.onload = guardarYActualizar;
+</script>
 </body>
 </html>
