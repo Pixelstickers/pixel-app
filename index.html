@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Pixel</title>
+  <title>Pixel - Categorías</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
@@ -53,11 +54,10 @@
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 30px;
       margin: 40px auto;
-      max-width: unset;
+      max-width: 1600px;
       padding: 0 20px;
       justify-items: center;
     }
-
     .categoria {
       text-align: center;
       text-decoration: none;
@@ -65,7 +65,7 @@
       background-color: #fff;
       padding: 15px;
       border-radius: 10px;
-      width: 160px;
+      width: 150px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       transition: transform 0.2s ease;
     }
@@ -73,53 +73,24 @@
       transform: scale(1.05);
     }
     .categoria img {
-      width: 150%;
+      width: 100%;
       border-radius: 8px;
       margin-bottom: 10px;
     }
     .categoria p {
       font-weight: bold;
-      font-size: 18px;
+      font-size: 16px;
+      background-color: #ffe1c4;
+      padding: 6px 10px;
+      border-radius: 10px;
+      margin: 0;
     }
     footer {
       background-color: #e6d4c4;
       text-align: center;
-      bottom: 0;
-      padding: 4px;
-      margin-top: 100px;
-      font-family: 'Quicksand', sans-serif;
-    }
-    #carritoBtn {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background-color: #ff914d;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      cursor: pointer;
-      z-index: 1000;
-    }
-    #panelPedido {
-      display: none;
-      position: fixed;
-      top: 70px;
-      right: 20px;
-      background-color: #fff;
-      border: 2px solid #ff914d;
-      border-radius: 10px;
       padding: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      width: 300px;
-      z-index: 999;
-    }
-    #panelPedido textarea {
-      width: 100%;
-      height: 100px;
-      font-size: 14px;
+      font-family: 'Quicksand', sans-serif;
+      margin-top: 60px;
     }
   </style>
 </head>
@@ -127,11 +98,12 @@
   <header>
     <h1>Pixel</h1>
     <nav>
-      <a href="../pixel-app/index.html">Inicio</a>
+      <a href="index.html">Inicio</a>
       <a href="https://pixelstickers.empretienda.com.ar/">Tienda Online</a>
       <a href="public/nosotros.html">Nosotros</a>
     </nav>
   </header>
+
   <h2>Categoría de Stickers</h2>
   <main>
     <div class="categorias">
@@ -175,75 +147,11 @@
         <img src="public/imagenes/laseleccion.png" alt="La Selección">
         <p>La Selección</p>
       </a>
-      <a href="public/categorias/libros.html" class="categoria">
-        <img src="public/imagenes/libros.png" alt="Libros">
-        <p>Libros</p>
-      </a>
-      <a href="public/categorias/musica.html" class="categoria">
-        <img src="public/imagenes/musica.png" alt="Musica">
-        <p>Musica</p>
-      </a>
-      <a href="public/categorias/naturaleza.html" class="categoria">
-        <img src="public/imagenes/naturaleza.png" alt="Naturaleza">
-        <p>Naturaleza</p>
-      </a>
-      <a href="public/categorias/series.html" class="categoria">
-        <img src="public/imagenes/series.png" alt="Series">
-        <p>Series</p>
-      </a>
-      <a href="public/categorias/viajes.html" class="categoria">
-        <img src="public/imagenes/viajes.png" alt="Viajes">
-        <p>Viajes</p>
-      </a>
     </div>
   </main>
-
-  <button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
-
-  <div id="panelPedido">
-    <h3>Tu pedido</h3>
-    <p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online.:</p>
-    <textarea id="listaPedido" readonly></textarea><br>
-    <button onclick="copiarPedido()">Copiar</button>
-    <button onclick="borrarPedido()">Borrar todo</button>
-  </div>
 
   <footer>
     <p>&copy; 2025 Pixel Stickers | @pixel.stickerss</p>
   </footer>
-
-  <script>
-    let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || [];
-
-    function guardarYActualizar() {
-      localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
-      document.getElementById("listaPedido").value = pedido.join(", ");
-      document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
-    }
-
-    function copiarPedido() {
-      const textarea = document.getElementById("listaPedido");
-      textarea.select();
-      document.execCommand("copy");
-      alert("¡Códigos copiados!");
-    }
-
-    function borrarPedido() {
-      pedido = [];
-      guardarYActualizar();
-      togglePedido(false);
-    }
-
-    function togglePedido(forceClose = null) {
-      const panel = document.getElementById("panelPedido");
-      if (forceClose !== null) {
-        panel.style.display = forceClose ? "block" : "none";
-      } else {
-        panel.style.display = panel.style.display === "none" ? "block" : "none";
-      }
-    }
-
-    window.onload = guardarYActualizar;
-  </script>
 </body>
 </html>
