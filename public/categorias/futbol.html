@@ -455,48 +455,81 @@
       <button class="agregar" onclick="agregarAlPedido('FU-00027')">Agregar al pedido</button>
     </div>
   </section>
-  <button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
   <div id="panelPedido">
     <h3>Tu pedido</h3>
     <p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online.</p>
-    <textarea id="listaPedido" readonly=""></textarea><br />
+    <textarea id="listaPedido" readonly style="width:100%; height:80px;"></textarea>
+    <div id="listaInteractiva" style="margin:10px 0;"></div>
     <button onclick="copiarPedido()">Copiar</button>
     <button onclick="borrarPedido()">Borrar todo</button>
     <a class="btn-contacto" href="https://wa.me/5493764297950" target="_blank">Enviar por WhatsApp</a>
     <a class="btn-contacto" href="https://www.instagram.com/pixel.stickerss" target="_blank">Enviar por Instagram</a>
     <a class="btn-contacto" href="https://pixelstickers.empretienda.com.ar/" target="_blank">Ir a la Tienda Online</a>
-  </div>
+  </div>  
   <footer>
     <p>© 2025 Pixel Stickers | @pixel.stickerss</p>
   </footer>
   <script>
-    let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || [];
-
+    let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || {};
+  
     function guardarYActualizar() {
       localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
-      document.getElementById("listaPedido").value = pedido.join(", ");
-      document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
+      const textarea = document.getElementById("listaPedido");
+      const lista = Object.entries(pedido)
+        .map(([codigo, cantidad]) => `${codigo} x${cantidad}`)
+        .join("\n");
+  
+      textarea.value = lista;
+      const total = Object.values(pedido).reduce((a, b) => a + b, 0);
+      document.getElementById("carritoBtn").innerText = `🛍️ Pedido (${total})`;
+  
+      const listaInteractiva = document.getElementById("listaInteractiva");
+      listaInteractiva.innerHTML = "";
+      for (const [codigo, cantidad] of Object.entries(pedido)) {
+        const item = document.createElement("div");
+        item.style.marginBottom = "10px";
+        item.innerHTML = `
+          <strong>${codigo}</strong> 
+          <button onclick="modificarCantidad('${codigo}', -1)">➖</button> 
+          <span>${cantidad}</span> 
+          <button onclick="modificarCantidad('${codigo}', 1)">➕</button>
+        `;
+        listaInteractiva.appendChild(item);
+      }
     }
-
+  
     function agregarAlPedido(codigo) {
-      pedido.push(codigo); // simplemente se agrega sin verificar duplicados
+      if (pedido[codigo]) {
+        pedido[codigo]++;
+      } else {
+        pedido[codigo] = 1;
+      }
       guardarYActualizar();
     }
-
-
+  
+    function modificarCantidad(codigo, cambio) {
+      if (pedido[codigo]) {
+        pedido[codigo] += cambio;
+        if (pedido[codigo] <= 0) {
+          delete pedido[codigo];
+        }
+        guardarYActualizar();
+      }
+    }
+  
     function copiarPedido() {
       const textarea = document.getElementById("listaPedido");
       textarea.select();
       document.execCommand("copy");
       alert("¡Códigos copiados!");
     }
-
+  
     function borrarPedido() {
-      pedido = [];
+      pedido = {};
       guardarYActualizar();
       togglePedido(false);
     }
-
+  
     function togglePedido(forceClose = null) {
       const panel = document.getElementById("panelPedido");
       if (forceClose !== null) {
@@ -505,15 +538,14 @@
         panel.style.display = panel.style.display === "none" ? "block" : "none";
       }
     }
-
+  
     window.onload = guardarYActualizar;
-
+  
     function toggleDropdown() {
       const menu = document.getElementById("dropdownMenu");
       menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
-
-    // Cierra el menú si se hace clic fuera
+  
     window.addEventListener("click", function (e) {
       const menu = document.getElementById("dropdownMenu");
       if (!e.target.matches('.dropbtn')) {
@@ -522,27 +554,8 @@
         }
       }
     });
-
-    // Función para abrir el modal
-    function ampliarImagen(src) {
-      document.getElementById("modalImg").src = src;
-      document.getElementById("imageModal").style.display = "block";
-    }
-
-    // Función para cerrar el modal
-    function cerrarModal() {
-      document.getElementById("imageModal").style.display = "none";
-    }
-
-    // Cierra el modal al hacer clic fuera de la imagen
-    window.onclick = function (event) {
-      const modal = document.getElementById("imageModal");
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
-
   </script>
+  
   <!-- Modal de imagen -->
   <div class="modal" id="imageModal">
     <div class="modal-content">
