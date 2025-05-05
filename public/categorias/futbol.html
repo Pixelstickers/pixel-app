@@ -214,7 +214,7 @@
   <footer>
     <p>© 2025 Pixel Stickers | @pixel.stickerss</p>
   </footer>
- <script>
+  <script>
     // Guardamos un objeto con cantidad por código
     let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || {};
   
@@ -279,7 +279,7 @@
       }
     });
   </script>
-
+  <!-- Modal de imagen -->
   <div class="modal" id="imageModal">
     <div class="modal-content">
       <span class="close-modal" onclick="cerrarModal()">×</span>
@@ -305,8 +305,7 @@
     function cerrarImagen() {
       document.getElementById('imgModal').style.display = 'none';
     }
-
- </script>
+  </script>
   <div id="modalSticker"
     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
     <div
@@ -317,7 +316,7 @@
     </div>
   </div>
   <script>
- function ampliarSticker(src) {
+    function ampliarSticker(src) {
       document.getElementById("imagenModal").src = src;
       document.getElementById("modalSticker").style.display = "flex";
     }
