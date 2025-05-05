@@ -61,49 +61,13 @@
         }
       }
     });
-
-  <!-- Modal de imagen -->
-  <div class="modal" id="imageModal">
-    <div class="modal-content">
-      <span class="close-modal" onclick="cerrarModal()">×</span>
-      <img alt="Imagen Ampliada" id="modalImg" src="" />
-    </div>
-  </div>
-  <div id="imgModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
-            background-color:rgba(0,0,0,0.8); z-index:2000; justify-content:center; align-items:center;">
-    <div style="position:relative; max-width:90%; max-height:90%;">
-      <img alt="Sticker ampliado" id="modalImg" src=""
-        style="max-width:100%; max-height:100%; border-radius:10px; background:white;" />
-      <button onclick="cerrarImagen()"
-        style="position:absolute; top:-10px; right:-10px; background:#ff914d; color:white; border:none; border-radius:50%; padding:10px; cursor:pointer;">X</button>
-    </div>
-  </div>
-  <script>
-    function mostrarImagen(src) {
-      var modal = document.getElementById('imgModal');
-      var modalImg = document.getElementById('modalImg');
-      modal.style.display = 'flex';
-      modalImg.src = src;
-    }
-    function cerrarImagen() {
-      document.getElementById('imgModal').style.display = 'none';
-    }
-  </script>
-  <div id="modalSticker"
-    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
-    <div
-      style="background-color: white; padding: 20px; border-radius: 10px; max-width: 90%; max-height: 90%; text-align: center; position: relative;">
-      <span onclick="cerrarModal()"
-        style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:24px; font-weight:bold;">×</span>
-      <img alt="Sticker ampliado" id="imagenModal" src="" style="max-width:100%; max-height:80vh;" />
-    </div>
-  </div>
-  <script>
+    
     function ampliarSticker(src) {
-      document.getElementById("imagenModal").src = src;
-      document.getElementById("modalSticker").style.display = "flex";
-    }
-    function cerrarModal() {
-      document.getElementById("modalSticker").style.display = "none";
-    }
+        document.getElementById("imagenModal").src = src;
+        document.getElementById("modalSticker").style.display = "flex";
+      }
+      
+      function cerrarModal() {
+        document.getElementById("modalSticker").style.display = "none";
+      }
 

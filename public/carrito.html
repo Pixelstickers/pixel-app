@@ -1,41 +1,25 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Carrito de Pedido | Pixel</title>
-  <link rel="stylesheet" href="css/estilos.css">
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <h1>Pixel</h1>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="https://pixelstickers.empretienda.com.ar/">Tienda Online</a>
-      <a href="nosotros.html">Nosotros</a>
-    </nav>
-  </header>
+<!-- Botón del carrito -->
+<button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
 
-  <main style="padding: 40px 20px;">
-    <h2>Revisá tu pedido</h2>
-    <p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online.</p>
+<!-- Panel del pedido -->
+<div id="panelPedido">
+  <h3>Tu pedido</h3>
+  <p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online.</p>
+  <textarea id="listaPedido" readonly></textarea><br />
+  <button onclick="copiarPedido()">Copiar</button>
+  <button onclick="borrarPedido()">Borrar todo</button>
+  <a class="btn-contacto" href="https://wa.me/5493764297950" target="_blank">Enviar por WhatsApp</a>
+  <a class="btn-contacto" href="https://www.instagram.com/pixel.stickerss" target="_blank">Enviar por Instagram</a>
+  <a class="btn-contacto" href="https://pixelstickers.empretienda.com.ar/" target="_blank">Ir a la Tienda Online</a>
+</div>
 
-    <textarea id="listaPedido" readonly style="width: 100%; height: 120px; font-size: 14px;"></textarea>
-
-    <div style="margin: 20px 0;">
-      <button onclick="copiarPedido()">Copiar</button>
-      <button onclick="borrarPedido()">Borrar todo</button>
-    </div>
-
-    <a class="btn-contacto" href="https://wa.me/5493764297950" target="_blank">Enviar por WhatsApp</a>
-    <a class="btn-contacto" href="https://www.instagram.com/pixel.stickerss" target="_blank">Enviar por Instagram</a>
-    <a class="btn-contacto" href="https://pixelstickers.empretienda.com.ar/" target="_blank">Ir a la Tienda Online</a>
-  </main>
-
-  <footer>
-    <p>© 2025 Pixel Stickers | @pixel.stickerss</p>
-  </footer>
-
-  <script src="js/funciones.js"></script>
-</body>
-</html>
+<!-- Modal para stickers ampliados -->
+<div id="modalSticker"
+  style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+  <div
+    style="background-color: white; padding: 20px; border-radius: 10px; max-width: 90%; max-height: 90%; text-align: center; position: relative;">
+    <span onclick="cerrarModal()"
+      style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:24px; font-weight:bold;">×</span>
+    <img alt="Sticker ampliado" id="imagenModal" src="" style="max-width:100%; max-height:80vh;" />
+  </div>
+</div>
