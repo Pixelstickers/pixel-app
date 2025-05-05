@@ -152,7 +152,7 @@
   <header>
     <h1>Pixel</h1>
     <nav>
-      <a href="index.html">Inicio</a>
+      <a href="./index.html">Inicio</a>
       <a href="https://pixelstickers.empretienda.com.ar/">Tienda Online</a>
       <a href="public/nosotros.html">Nosotros</a>
     </nav>
@@ -239,18 +239,18 @@
   </footer>
 
   <script>
-    // Guardamos un objeto con cantidad por código
+    // Objeto con cantidades: { "FU-00001": 2, "FU-00002": 1 }
     let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || {};
   
     function guardarYActualizar() {
       localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
   
-      // Convertimos a texto amigable: FU-00001 x2, FU-00003 x1
       const lista = Object.entries(pedido)
         .map(([codigo, cantidad]) => `${codigo} x${cantidad}`)
         .join(", ");
   
       document.getElementById("listaPedido").value = lista;
+  
       const total = Object.values(pedido).reduce((a, b) => a + b, 0);
       document.getElementById("carritoBtn").innerText = `🛍️ Pedido (${total})`;
     }
