@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 
 <html lang="es">
+
 <head>
-<meta charset="utf-8"/>
-<title>Harry Potter</title>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&amp;family=Quicksand&amp;display=swap" rel="stylesheet"/>
-<style>
+  <meta charset="utf-8" />
+  <title>Harry Potter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&amp;family=Quicksand&amp;display=swap"
+    rel="stylesheet" />
+  <style>
     body {
       margin: 0;
       font-family: 'Quicksand', sans-serif;
       background-color: #fffaf5;
       color: #4a2e1c;
     }
+
     header {
       background-image: url('../header_zorro.png');
       background-repeat: no-repeat;
@@ -26,13 +29,16 @@
       color: #fff;
       padding: 0 20px;
     }
+
     h1 {
       font-family: 'Dancing Script', cursive;
       font-size: 48px;
     }
+
     nav {
       margin-top: 120px;
     }
+
     nav a {
       text-decoration: none;
       color: white;
@@ -42,42 +48,50 @@
       border-radius: 20px;
       margin: 5px;
     }
+
     section {
       padding: 40px 20px;
       max-width: unset;
       margin: auto;
     }
+
     h2 {
       color: #ff914d;
       font-size: 26px;
       text-align: center;
       margin-bottom: 30px;
     }
+
     .galeria {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
     }
+
     .item {
       background-color: #fff;
       border-radius: 10px;
       padding: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
-      width: 150px; /* antes 220px */
+      width: 150px;
+      /* antes 220px */
       flex-grow: 0;
       flex-shrink: 0;
     }
+
     .item img {
       width: 100%;
       border-radius: 6px;
     }
+
     .codigo {
       margin: 8px 0;
       font-weight: bold;
       color: #7a4c2f;
     }
+
     button.agregar {
       background-color: #ff914d;
       border: none;
@@ -87,53 +101,55 @@
       cursor: pointer;
       font-family: 'Quicksand', sans-serif;
     }
+
     button.agregar:hover {
       background-color: #e77c33;
     }
+
     .dropdown {
-    position: relative;
-    display: inline-block;
-  }
+      position: relative;
+      display: inline-block;
+    }
 
-  .dropbtn {
-    line-height: 24px;
-    background-color: #ff914d;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    font-family: 'Quicksand', sans-serif;
-    margin: 5px;
-  }
+    .dropbtn {
+      line-height: 24px;
+      background-color: #ff914d;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-family: 'Quicksand', sans-serif;
+      margin: 5px;
+    }
 
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fffaf5;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    border-radius: 10px;
-    z-index: 999;
-    top: 50px;
-  }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fffaf5;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      z-index: 999;
+      top: 50px;
+    }
 
-  .dropdown-content a {
-    color: #4a2e1c;
-    padding: 10px 15px;
-    text-decoration: none;
-    display: block;
-    border-bottom: 1px solid #e6d4c4;
-  }
+    .dropdown-content a {
+      color: #4a2e1c;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+      border-bottom: 1px solid #e6d4c4;
+    }
 
-  .dropdown-content a:last-child {
-    border-bottom: none;
-  }
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
 
-  .dropdown-content a:hover {
-    background-color: #ffe1c4;
-  }
+    .dropdown-content a:hover {
+      background-color: #ffe1c4;
+    }
 
     #carritoBtn {
       position: fixed;
@@ -145,7 +161,7 @@
       padding: 10px 20px;
       font-size: 16px;
       border-radius: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
       cursor: pointer;
       z-index: 1000;
     }
@@ -159,7 +175,7 @@
       border: 2px solid #ff914d;
       border-radius: 10px;
       padding: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
       width: 320px;
       z-index: 999;
     }
@@ -197,56 +213,59 @@
     }
   </style>
 </head>
+
 <body>
-<header>
-<h1>Pixel</h1>
-<nav>
-<a href="../../index.html">Inicio</a>
-<div class="dropdown">
-<button class="dropbtn" onclick="toggleDropdown()">Categorías</button>
-<div class="dropdown-content" id="dropdownMenu">
-<a href="amor.html">Amor</a>
-<a href="animales.html">Animales</a>
-<a href="bebidas.html">Bebidas</a>
-<a href="cine.html">Cine</a>
-<a href="comida.html">Comida</a>
-<a href="frases.html">Frases</a>
-<a href="futbol.html">Fútbol</a>
-<a href="gatos.html">Gatitos</a>
-<a href="laseleccion.html">La selección</a>
-<a href="libros.html">Libros</a>
-<a href="música.html">Música</a>
-<a href="naturaleza.html">Naturaleza</a>
-<a href="series.html">Series</a>
-<a href="viajes.html">Viajes</a>
-</div>
-<a href="https://pixelstickers.empretienda.com.ar/">Tienda Online</a>
-<a href="../nosotros.html">Nosotros</a>
-</div></nav>
-</header>
-<h2>Harry Potter</h2>
-<section class="galeria">
-<div class="item">
-<img alt="Sticker Harry Potter" onclick="ampliarSticker('../imagenes/HP-00001.png')" src="../imagenes/HP-00001.png" style="cursor:pointer;"/>
-<p class="codigo">HP-00001</p>
-<button class="agregar" onclick="agregarAlPedido('HP-00001')">Agregar al pedido</button>
-</div>
-</section>
-<button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
-<div id="panelPedido">
-<h3>Tu pedido</h3>
-<p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online.</p>
-<textarea id="listaPedido" readonly=""></textarea><br/>
-<button onclick="copiarPedido()">Copiar</button>
-<button onclick="borrarPedido()">Borrar todo</button>
-<a class="btn-contacto" href="https://wa.me/5493764297950" target="_blank">Enviar por WhatsApp</a>
-<a class="btn-contacto" href="https://www.instagram.com/pixel.stickerss" target="_blank">Enviar por Instagram</a>
-<a class="btn-contacto" href="https://pixelstickers.empretienda.com.ar/" target="_blank">Ir a la Tienda Online</a>
-</div>
-<footer>
-<p>© 2025 Pixel Stickers | @pixel.stickerss</p>
-</footer>
-<script>
+  <header>
+    <h1>Pixel</h1>
+    <nav>
+      <a href="../../index.html">Inicio</a>
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown()">Categorías</button>
+        <div class="dropdown-content" id="dropdownMenu">
+          <a href="amor.html">Amor</a>
+          <a href="animales.html">Animales</a>
+          <a href="bebidas.html">Bebidas</a>
+          <a href="cine.html">Cine</a>
+          <a href="comida.html">Comida</a>
+          <a href="frases.html">Frases</a>
+          <a href="futbol.html">Fútbol</a>
+          <a href="gatos.html">Gatitos</a>
+          <a href="laseleccion.html">La selección</a>
+          <a href="libros.html">Libros</a>
+          <a href="música.html">Música</a>
+          <a href="naturaleza.html">Naturaleza</a>
+          <a href="series.html">Series</a>
+          <a href="viajes.html">Viajes</a>
+        </div>
+        <a href="https://pixelstickers.empretienda.com.ar/">Tienda Online</a>
+        <a href="../nosotros.html">Nosotros</a>
+      </div>
+    </nav>
+  </header>
+  <h2>Harry Potter</h2>
+  <section class="galeria">
+    <div class="item">
+      <img alt="Sticker Harry Potter" onclick="ampliarSticker('../imagenes/HP-00001.png')"
+        src="../imagenes/HP-00001.png" style="cursor:pointer;" />
+      <p class="codigo">HP-00001</p>
+      <button class="agregar" onclick="agregarAlPedido('HP-00001')">Agregar al pedido</button>
+    </div>
+  </section>
+  <button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
+  <div id="panelPedido">
+    <h3>Tu pedido</h3>
+    <p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online.</p>
+    <textarea id="listaPedido" readonly=""></textarea><br />
+    <button onclick="copiarPedido()">Copiar</button>
+    <button onclick="borrarPedido()">Borrar todo</button>
+    <a class="btn-contacto" href="https://wa.me/5493764297950" target="_blank">Enviar por WhatsApp</a>
+    <a class="btn-contacto" href="https://www.instagram.com/pixel.stickerss" target="_blank">Enviar por Instagram</a>
+    <a class="btn-contacto" href="https://pixelstickers.empretienda.com.ar/" target="_blank">Ir a la Tienda Online</a>
+  </div>
+  <footer>
+    <p>© 2025 Pixel Stickers | @pixel.stickerss</p>
+  </footer>
+  <script>
     let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || [];
 
     function guardarYActualizar() {
@@ -287,32 +306,38 @@
     window.onload = guardarYActualizar;
 
     function toggleDropdown() {
-    const menu = document.getElementById("dropdownMenu");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
-  }
-
-  // Cierra el menú si se hace clic fuera
-  window.addEventListener("click", function (e) {
-    const menu = document.getElementById("dropdownMenu");
-    if (!e.target.matches('.dropbtn')) {
-      if (menu.style.display === "block") {
-        menu.style.display = "none";
-      }
+      const menu = document.getElementById("dropdownMenu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
-  });
+
+    // Cierra el menú si se hace clic fuera
+    window.addEventListener("click", function (e) {
+      const menu = document.getElementById("dropdownMenu");
+      if (!e.target.matches('.dropbtn')) {
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+        }
+      }
+    });
   </script>
-<div id="modalSticker" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
-<div style="background-color: white; padding: 20px; border-radius: 10px; max-width: 90%; max-height: 90%; text-align: center; position: relative;">
-<span onclick="cerrarModal()" style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:24px; font-weight:bold;">×</span>
-<img alt="Sticker ampliado" id="imagenModal" src="" style="max-width:100%; max-height:80vh;"/>
-</div>
-</div><script>
-        function ampliarSticker(src) {
-            document.getElementById("imagenModal").src = src;
-            document.getElementById("modalSticker").style.display = "flex";
-        }
-        function cerrarModal() {
-            document.getElementById("modalSticker").style.display = "none";
-        }
-        </script></body>
+  <div id="modalSticker"
+    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+    <div
+      style="background-color: white; padding: 20px; border-radius: 10px; max-width: 90%; max-height: 90%; text-align: center; position: relative;">
+      <span onclick="cerrarModal()"
+        style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:24px; font-weight:bold;">×</span>
+      <img alt="Sticker ampliado" id="imagenModal" src="" style="max-width:100%; max-height:80vh;" />
+    </div>
+  </div>
+  <script>
+    function ampliarSticker(src) {
+      document.getElementById("imagenModal").src = src;
+      document.getElementById("modalSticker").style.display = "flex";
+    }
+    function cerrarModal() {
+      document.getElementById("modalSticker").style.display = "none";
+    }
+  </script>
+</body>
+
 </html>
