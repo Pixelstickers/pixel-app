@@ -479,11 +479,10 @@
     }
 
     function agregarAlPedido(codigo) {
-      if (!pedido.includes(codigo)) {
-        pedido.push(codigo);
-        guardarYActualizar();
-      }
+      pedido.push(codigo); // simplemente se agrega sin verificar duplicados
+      guardarYActualizar();
     }
+
 
     function copiarPedido() {
       const textarea = document.getElementById("listaPedido");
