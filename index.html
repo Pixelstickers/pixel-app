@@ -240,7 +240,7 @@
 
   <script>
     let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || {};
-
+  
     function guardarYActualizar() {
       localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
       const lista = Object.entries(pedido)
@@ -250,20 +250,20 @@
       const total = Object.values(pedido).reduce((a, b) => a + b, 0);
       document.getElementById("carritoBtn").innerText = `🛍️ Pedido (${total})`;
     }
-
+  
     function copiarPedido() {
       const textarea = document.getElementById("listaPedido");
       textarea.select();
       document.execCommand("copy");
       alert("¡Códigos copiados!");
     }
-
+  
     function borrarPedido() {
       pedido = {};
       guardarYActualizar();
       togglePedido(false);
     }
-
+  
     function togglePedido(forceClose = null) {
       const panel = document.getElementById("panelPedido");
       if (forceClose !== null) {
@@ -272,7 +272,7 @@
         panel.style.display = panel.style.display === "none" ? "block" : "none";
       }
     }
-
+  
     window.onload = guardarYActualizar;
   </script>
 </body>
