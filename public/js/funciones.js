@@ -50,3 +50,11 @@ function togglePedido(forceClose = null) {
 }
 
 window.addEventListener("DOMContentLoaded", guardarYActualizar);
+
+    function ampliarSticker(src) {
+      document.getElementById("imagenModal").src = src;
+      document.getElementById("modalSticker").style.display = "flex";
+    }
+    function cerrarModal() {
+      document.getElementById("modalSticker").style.display = "none";
+    }
