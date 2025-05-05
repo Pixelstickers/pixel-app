@@ -216,6 +216,21 @@
 <p>Viajes</p>
 </a>
 </div>
+</section>
+
+<button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
+
+<div id="panelPedido">
+  <h3>Tu pedido</h3>
+  <p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online.</p>
+  <textarea id="listaPedido" readonly></textarea><br>
+  <button onclick="copiarPedido()">Copiar</button>
+  <button onclick="borrarPedido()">Borrar todo</button>
+  <a class="btn-contacto" href="https://wa.me/5493764297950" target="_blank">Enviar por WhatsApp</a>
+  <a class="btn-contacto" href="https://www.instagram.com/pixel.stickerss" target="_blank">Enviar por Instagram</a>
+  <a class="btn-contacto" href="https://pixelstickers.empretienda.com.ar/" target="_blank">Ir a la Tienda Online</a>
+</div>
+
 <footer>
   <p>&copy; 2025 Pixel Stickers | @pixel.stickerss</p>
 </footer>
@@ -227,6 +242,13 @@
     localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
     document.getElementById("listaPedido").value = pedido.join(", ");
     document.getElementById("carritoBtn").innerText = "🛍️ Pedido (" + pedido.length + ")";
+  }
+
+  function agregarAlPedido(codigo) {
+    if (!pedido.includes(codigo)) {
+      pedido.push(codigo);
+      guardarYActualizar();
+    }
   }
 
   function copiarPedido() {
@@ -252,6 +274,21 @@
   }
 
   window.onload = guardarYActualizar;
+
+  function toggleDropdown() {
+  const menu = document.getElementById("dropdownMenu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+// Cierra el menú si se hace clic fuera
+window.addEventListener("click", function (e) {
+  const menu = document.getElementById("dropdownMenu");
+  if (!e.target.matches('.dropbtn')) {
+    if (menu.style.display === "block") {
+      menu.style.display = "none";
+    }
+  }
+});
 </script>
 </body>
 </html>
