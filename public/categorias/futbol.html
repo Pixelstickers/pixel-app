@@ -194,7 +194,52 @@
       font-family: 'Quicksand', sans-serif;
       margin-top: 60px;
     }
-  </style>
+  
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 60%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.close-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: black;
+  text-decoration: none;
+}
+
+</style>
 </head>
 <body>
   <header>
@@ -229,137 +274,137 @@
   <h2>Fútbol</h2>
   <section class="galeria">
     <div class="item">
-      <img src="../imagenes/FU-00001.png" alt="Sticker Fútbol 1">
+      <img src="../imagenes/FU-00001.png" alt="Sticker Fútbol 1" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00001</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00001')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00002.png" alt="Sticker Fútbol 2">
+      <img src="../imagenes/FU-00002.png" alt="Sticker Fútbol 2" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00002</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00002')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00003.png" alt="Sticker Fútbol 3">
+      <img src="../imagenes/FU-00003.png" alt="Sticker Fútbol 3" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00003</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00003')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00004.png" alt="Sticker Fútbol 4">
+      <img src="../imagenes/FU-00004.png" alt="Sticker Fútbol 4" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00004</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00004')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00005.png" alt="Sticker Fútbol 5">
+      <img src="../imagenes/FU-00005.png" alt="Sticker Fútbol 5" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00005</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00005')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00006.png" alt="Sticker Fútbol 6">
+      <img src="../imagenes/FU-00006.png" alt="Sticker Fútbol 6" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00006</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00006')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00007.png" alt="Sticker Fútbol 7">
+      <img src="../imagenes/FU-00007.png" alt="Sticker Fútbol 7" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00007</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00007')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00008.png" alt="Sticker Fútbol 8">
+      <img src="../imagenes/FU-00008.png" alt="Sticker Fútbol 8" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00008</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00008')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00009.png" alt="Sticker Fútbol 9">
+      <img src="../imagenes/FU-00009.png" alt="Sticker Fútbol 9" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00009</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00009')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00010.png" alt="Sticker Fútbol 10">
+      <img src="../imagenes/FU-00010.png" alt="Sticker Fútbol 10" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00010</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00010')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00011.png" alt="Sticker Fútbol 11">
+      <img src="../imagenes/FU-00011.png" alt="Sticker Fútbol 11" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00011</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00011')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00012.png" alt="Sticker Fútbol 12">
+      <img src="../imagenes/FU-00012.png" alt="Sticker Fútbol 12" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00012</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00012')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00013.png" alt="Sticker Fútbol 13">
+      <img src="../imagenes/FU-00013.png" alt="Sticker Fútbol 13" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00013</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00013')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00014.png" alt="Sticker Fútbol 14">
+      <img src="../imagenes/FU-00014.png" alt="Sticker Fútbol 14" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00014</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00014')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00015.png" alt="Sticker Fútbol 15">
+      <img src="../imagenes/FU-00015.png" alt="Sticker Fútbol 15" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00015</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00015')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00016.png" alt="Sticker Fútbol 16">
+      <img src="../imagenes/FU-00016.png" alt="Sticker Fútbol 16" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00016</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00016')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00017.png" alt="Sticker Fútbol 17">
+      <img src="../imagenes/FU-00017.png" alt="Sticker Fútbol 17" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00017</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00017')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00018.png" alt="Sticker Fútbol 18">
+      <img src="../imagenes/FU-00018.png" alt="Sticker Fútbol 18" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00018</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00018')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00019.png" alt="Sticker Fútbol 19">
+      <img src="../imagenes/FU-00019.png" alt="Sticker Fútbol 19" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00019</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00019')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00020.png" alt="Sticker Fútbol 20">
+      <img src="../imagenes/FU-00020.png" alt="Sticker Fútbol 20" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00020</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00020')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00021.png" alt="Sticker Fútbol 21">
+      <img src="../imagenes/FU-00021.png" alt="Sticker Fútbol 21" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00021</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00021')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00022.png" alt="Sticker Fútbol 22">
+      <img src="../imagenes/FU-00022.png" alt="Sticker Fútbol 22" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00022</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00022')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00023.png" alt="Sticker Fútbol 23">
+      <img src="../imagenes/FU-00023.png" alt="Sticker Fútbol 23" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00023</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00023')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00024.png" alt="Sticker Fútbol 24">
+      <img src="../imagenes/FU-00024.png" alt="Sticker Fútbol 24" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00024</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00024')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00025.png" alt="Sticker Fútbol 25">
+      <img src="../imagenes/FU-00025.png" alt="Sticker Fútbol 25" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00025</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00025')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00026.png" alt="Sticker Fútbol 26">
+      <img src="../imagenes/FU-00026.png" alt="Sticker Fútbol 26" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00026</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00026')">Agregar al pedido</button>
     </div>
     <div class="item">
-      <img src="../imagenes/FU-00027.png" alt="Sticker Fútbol 27">
+      <img src="../imagenes/FU-00027.png" alt="Sticker Fútbol 27" onclick="ampliarImagen(this.src)">
       <p class="codigo">FU-00027</p>
       <button class="agregar" onclick="agregarAlPedido('FU-00027')">Agregar al pedido</button>
     </div>
@@ -423,25 +468,6 @@
 
     window.onload = guardarYActualizar;
 
-// Ampliar imagen
-document.querySelectorAll('.item img').forEach(img => {
-  img.addEventListener('click', () => {
-    const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("modalImg");
-    modalImg.src = img.src;
-    modal.style.display = "flex";
-  });
-});
-
-function cerrarModal() {
-  document.getElementById("modal").style.display = "none";
-}
-
-document.getElementById("modal").addEventListener("click", (e) => {
-  if (e.target.id === "modal") cerrarModal();
-});
-
-
     function toggleDropdown() {
     const menu = document.getElementById("dropdownMenu");
     menu.style.display = menu.style.display === "block" ? "none" : "block";
@@ -456,12 +482,34 @@ document.getElementById("modal").addEventListener("click", (e) => {
       }
     }
   });
-  </script>
+  
+// Función para abrir el modal
+function ampliarImagen(src) {
+  document.getElementById("modalImg").src = src;
+  document.getElementById("imageModal").style.display = "block";
+}
 
-<!-- Modal para ampliar imagen -->
-<div id="modal" style="display:none; position:fixed; z-index:1001; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.7); justify-content:center; align-items:center;">
-  <span onclick="cerrarModal()" style="position:absolute; top:20px; right:30px; font-size:40px; color:white; cursor:pointer;">&times;</span>
-  <img id="modalImg" style="max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 0 20px #000;">
+// Función para cerrar el modal
+function cerrarModal() {
+  document.getElementById("imageModal").style.display = "none";
+}
+
+// Cierra el modal al hacer clic fuera de la imagen
+window.onclick = function(event) {
+  const modal = document.getElementById("imageModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+</script>
+
+<!-- Modal de imagen -->
+<div id="imageModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="cerrarModal()">&times;</span>
+    <img id="modalImg" src="" alt="Imagen Ampliada">
+  </div>
 </div>
 
 </body>
