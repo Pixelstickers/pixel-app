@@ -14,28 +14,27 @@
       <div class="dropdown">
         <button class="dropbtn" onclick="toggleDropdown()">Categorías</button>
         <div class="dropdown-content" id="dropdownMenu">
-          <a href="#">Amor</a>
-          <a href="#">Animales</a>
-          <a href="#">Bebidas</a>
-          <a href="#">Cine</a>
-          <a href="#">Comida</a>
-          <a href="#">Disney</a>
-          <a href="#">Frases</a>
-          <a href="#">Gatitos</a>
-          <a href="#">Harry Potter</a>
-          <a href="#">La selección</a>
-          <a href="#">Libros</a>
-          <a href="#">Música</a>
-          <a href="#">Naturaleza</a>
-          <a href="#">Series</a>
-          <a href="#">Viajes</a>
+          <a href="amor.html">Amor</a>
+          <a href="animales.html">Animales</a>
+          <a href="bebidas.html">Bebidas</a>
+          <a href="cine.html">Cine</a>
+          <a href="comida.html">Comida</a>
+          <a href="disney.html">Disney</a>
+          <a href="frases.html">Frases</a>
+          <a href="gatos.html">Gatitos</a>
+          <a href="harrypotter.html">Harry Potter</a>
+          <a href="laseleccion.html">La selección</a>
+          <a href="libros.html">Libros</a>
+          <a href="música.html">Música</a>
+          <a href="naturaleza.html">Naturaleza</a>
+          <a href="series.html">Series</a>
+          <a href="viajes.html">Viajes</a>
         </div>
       </div>
-      <a href="#">Tienda Online</a>
-      <a href="#">Nosotros</a>
+      <a href="https://pixelstickers.empretienda.com.ar/">Tienda Online</a>
+      <a href="../nosotros.html">Nosotros</a>
     </nav>
   </header>
-
   <h2>Fútbol</h2>
   <section class="galeria">
     <div class="item">
@@ -201,28 +200,130 @@
       <button class="agregar" onclick="agregarAlPedido('FU-00027')">Agregar al pedido</button>
     </div>
   </section>
-  <div id="contenedor-carrito"></div>
-  <div id="modalSticker"
-    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
-    <div style="background-color: white; padding: 20px; border-radius: 10px; max-width: 90%; max-height: 90%; text-align: center; position: relative;">
-      <span onclick="cerrarModal()" style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:24px; font-weight:bold;">×</span>
-      <img alt="Sticker ampliado" id="imagenModal" src="" style="max-width:100%; max-height:80vh;" />
-    </div>
+  <button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
+  <div id="panelPedido">
+    <h3>Tu pedido</h3>
+    <p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online.</p>
+    <textarea id="listaPedido" readonly=""></textarea><br />
+    <button onclick="copiarPedido()">Copiar</button>
+    <button onclick="borrarPedido()">Borrar todo</button>
+    <a class="btn-contacto" href="https://wa.me/5493764297950" target="_blank">Enviar por WhatsApp</a>
+    <a class="btn-contacto" href="https://www.instagram.com/pixel.stickerss" target="_blank">Enviar por Instagram</a>
+    <a class="btn-contacto" href="https://pixelstickers.empretienda.com.ar/" target="_blank">Ir a la Tienda Online</a>
   </div>
   <footer>
     <p>© 2025 Pixel Stickers | @pixel.stickerss</p>
   </footer>
-  <script src="../js/funciones.js"></script>
-
-  <!-- Cargar dinámicamente el carrito -->
   <script>
-    fetch('../carrito.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('contenedor-carrito').innerHTML = html;
-        guardarYActualizar(); // <- esta función está en funciones.js
-      });
+    // Guardamos un objeto con cantidad por código
+    let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || {};
+  
+    function guardarYActualizar() {
+      localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
+  
+      // Convertimos a texto amigable: FU-00001 x2, FU-00003 x1
+      const lista = Object.entries(pedido)
+        .map(([codigo, cantidad]) => `${codigo} x${cantidad}`)
+        .join(", ");
+  
+      document.getElementById("listaPedido").value = lista;
+      const total = Object.values(pedido).reduce((a, b) => a + b, 0);
+      document.getElementById("carritoBtn").innerText = `🛍️ Pedido (${total})`;
+    }
+  
+    function agregarAlPedido(codigo) {
+      if (pedido[codigo]) {
+        pedido[codigo]++;
+      } else {
+        pedido[codigo] = 1;
+      }
+      guardarYActualizar();
+    }
+  
+    function copiarPedido() {
+      const textarea = document.getElementById("listaPedido");
+      textarea.select();
+      document.execCommand("copy");
+      alert("¡Códigos copiados!");
+    }
+  
+    function borrarPedido() {
+      pedido = {};
+      guardarYActualizar();
+      togglePedido(false);
+    }
+  
+    function togglePedido(forceClose = null) {
+      const panel = document.getElementById("panelPedido");
+      if (forceClose !== null) {
+        panel.style.display = forceClose ? "block" : "none";
+      } else {
+        panel.style.display = panel.style.display === "none" ? "block" : "none";
+      }
+    }
+  
+    window.onload = guardarYActualizar;
+  
+    function toggleDropdown() {
+      const menu = document.getElementById("dropdownMenu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+  
+    // Cierra el menú si se hace clic fuera
+    window.addEventListener("click", function (e) {
+      const menu = document.getElementById("dropdownMenu");
+      if (!e.target.matches('.dropbtn')) {
+        if (menu.style.display === "block") {
+          menu.style.display = "none";
+        }
+      }
+    });
   </script>
-  </body>
-  </html>
+  <!-- Modal de imagen -->
+  <div class="modal" id="imageModal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="cerrarModal()">×</span>
+      <img alt="Imagen Ampliada" id="modalImg" src="" />
+    </div>
+  </div>
+  <div id="imgModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+            background-color:rgba(0,0,0,0.8); z-index:2000; justify-content:center; align-items:center;">
+    <div style="position:relative; max-width:90%; max-height:90%;">
+      <img alt="Sticker ampliado" id="modalImg" src=""
+        style="max-width:100%; max-height:100%; border-radius:10px; background:white;" />
+      <button onclick="cerrarImagen()"
+        style="position:absolute; top:-10px; right:-10px; background:#ff914d; color:white; border:none; border-radius:50%; padding:10px; cursor:pointer;">X</button>
+    </div>
+  </div>
+  <script>
+    function mostrarImagen(src) {
+      var modal = document.getElementById('imgModal');
+      var modalImg = document.getElementById('modalImg');
+      modal.style.display = 'flex';
+      modalImg.src = src;
+    }
+    function cerrarImagen() {
+      document.getElementById('imgModal').style.display = 'none';
+    }
+  </script>
+  <div id="modalSticker"
+    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+    <div
+      style="background-color: white; padding: 20px; border-radius: 10px; max-width: 90%; max-height: 90%; text-align: center; position: relative;">
+      <span onclick="cerrarModal()"
+        style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:24px; font-weight:bold;">×</span>
+      <img alt="Sticker ampliado" id="imagenModal" src="" style="max-width:100%; max-height:80vh;" />
+    </div>
+  </div>
+  <script>
+    function ampliarSticker(src) {
+      document.getElementById("imagenModal").src = src;
+      document.getElementById("modalSticker").style.display = "flex";
+    }
+    function cerrarModal() {
+      document.getElementById("modalSticker").style.display = "none";
+    }
+  </script>
+</body>
 
+</html>
