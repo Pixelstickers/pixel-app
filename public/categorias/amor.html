@@ -4,6 +4,7 @@
 
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amor</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&amp;family=Quicksand&amp;display=swap"
     rel="stylesheet" />
@@ -63,10 +64,10 @@
     }
 
     .galeria {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 20px;
-      justify-content: center;
+      justify-items: center;
     }
 
     .item:hover {
@@ -79,10 +80,8 @@
       padding: 10px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
-      width: 150px;
-      /* antes 220px */
-      flex-grow: 0;
-      flex-shrink: 0;
+      width: 100%;
+      max-width: 150px;
     }
     
 
@@ -216,7 +215,7 @@
       font-family: 'Quicksand', sans-serif;
       margin-top: 60px;
     }
-    
+
     @media screen and (max-width: 768px) {
   header {
     height: 200px;
@@ -237,7 +236,7 @@
   }
 
   .item {
-    width: 45%;
+    max-width: 45%;
     margin-bottom: 20px;
   }
 
@@ -257,6 +256,8 @@
   footer {
     font-size: 14px;
   }
+}
+
 }    
   </style>
 </head>
