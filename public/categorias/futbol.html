@@ -214,89 +214,89 @@
   <footer>
     <p>© 2025 Pixel Stickers | @pixel.stickerss</p>
   </footer>
-  <script>
-    let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || {};
-  
-    function guardarYActualizar() {
-      localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
-      const lista = Object.entries(pedido)
-        .map(([codigo, cantidad]) => `${codigo} x${cantidad}`)
-        .join(", ");
-      document.getElementById("listaPedido").value = lista;
-      const total = Object.values(pedido).reduce((a, b) => a + b, 0);
-      document.getElementById("carritoBtn").innerText = `🛍️ Pedido (${total})`;
-      renderBotonesCantidad();
+<script>
+  let pedido = JSON.parse(localStorage.getItem("pedidoPixel")) || {};
+
+  function guardarYActualizar() {
+    localStorage.setItem("pedidoPixel", JSON.stringify(pedido));
+    const lista = Object.entries(pedido)
+      .map(([codigo, cantidad]) => `${codigo} x${cantidad}`)
+      .join(", ");
+    document.getElementById("listaPedido").value = lista;
+    const total = Object.values(pedido).reduce((a, b) => a + b, 0);
+    document.getElementById("carritoBtn").innerText = `🛍️ Pedido (${total})`;
+    renderBotonesCantidad();
+  }
+
+  function agregarAlPedido(codigo) {
+    if (pedido[codigo]) {
+      pedido[codigo]++;
+    } else {
+      pedido[codigo] = 1;
     }
-  
-    function agregarAlPedido(codigo) {
-      if (pedido[codigo]) {
-        pedido[codigo]++;
-      } else {
-        pedido[codigo] = 1;
+    guardarYActualizar();
+  }
+
+  function restarDelPedido(codigo) {
+    if (pedido[codigo]) {
+      pedido[codigo]--;
+      if (pedido[codigo] <= 0) {
+        delete pedido[codigo];
       }
       guardarYActualizar();
     }
-  
-    function restarDelPedido(codigo) {
-      if (pedido[codigo]) {
-        pedido[codigo]--;
-        if (pedido[codigo] <= 0) {
-          delete pedido[codigo];
-        }
-        guardarYActualizar();
-      }
+  }
+
+  function copiarPedido() {
+    const textarea = document.getElementById("listaPedido");
+    textarea.select();
+    document.execCommand("copy");
+    alert("¡Códigos copiados!");
+  }
+
+  function borrarPedido() {
+    pedido = {};
+    guardarYActualizar();
+    togglePedido(false);
+  }
+
+  function togglePedido(forceClose = null) {
+    const panel = document.getElementById("panelPedido");
+    if (forceClose !== null) {
+      panel.style.display = forceClose ? "block" : "none";
+    } else {
+      panel.style.display = panel.style.display === "none" ? "block" : "none";
     }
-  
-    function copiarPedido() {
-      const textarea = document.getElementById("listaPedido");
-      textarea.select();
-      document.execCommand("copy");
-      alert("¡Códigos copiados!");
+  }
+
+  function renderBotonesCantidad() {
+    const contenedor = document.getElementById("panelPedido");
+    const lista = document.createElement("div");
+    lista.innerHTML = '';
+    for (const [codigo, cantidad] of Object.entries(pedido)) {
+      const linea = document.createElement("p");
+      linea.innerHTML = `
+        <strong>${codigo}</strong>: 
+        <button onclick="restarDelPedido('${codigo}')">-</button> 
+        ${cantidad} 
+        <button onclick="agregarAlPedido('${codigo}')">+</button>
+      `;
+      lista.appendChild(linea);
     }
-  
-    function borrarPedido() {
-      pedido = {};
-      guardarYActualizar();
-      togglePedido(false);
-    }
-  
-    function togglePedido(forceClose = null) {
-      const panel = document.getElementById("panelPedido");
-      if (forceClose !== null) {
-        panel.style.display = forceClose ? "block" : "none";
-      } else {
-        panel.style.display = panel.style.display === "none" ? "block" : "none";
-      }
-    }
-  
-    function renderBotonesCantidad() {
-      const contenedor = document.getElementById("panelPedido");
-      const lista = document.createElement("div");
-      lista.innerHTML = '';
-      for (const [codigo, cantidad] of Object.entries(pedido)) {
-        const linea = document.createElement("p");
-        linea.innerHTML = `
-          <strong>${codigo}</strong>: 
-          <button onclick="restarDelPedido('${codigo}')">-</button> 
-          ${cantidad} 
-          <button onclick="agregarAlPedido('${codigo}')">+</button>
-        `;
-        lista.appendChild(linea);
-      }
-  
-      // Elimina cualquier lista vieja
-      const anteriores = contenedor.querySelectorAll("p.control-cantidad");
-      anteriores.forEach(e => e.remove());
-  
-      // Insertamos las líneas nuevas antes del textarea
-      const textarea = document.getElementById("listaPedido");
-      lista.childNodes.forEach(linea => {
-        linea.classList.add("control-cantidad");
-        contenedor.insertBefore(linea, textarea);
-      });
-    }
-  
-    window.onload = guardarYActualizar;
+
+    // Elimina cualquier lista vieja
+    const anteriores = contenedor.querySelectorAll("p.control-cantidad");
+    anteriores.forEach(e => e.remove());
+
+    // Insertamos las líneas nuevas antes del textarea
+    const textarea = document.getElementById("listaPedido");
+    lista.childNodes.forEach(linea => {
+      linea.classList.add("control-cantidad");
+      contenedor.insertBefore(linea, textarea);
+    });
+  }
+
+  window.onload = guardarYActualizar;
   
     function toggleDropdown() {
       const menu = document.getElementById("dropdownMenu");
