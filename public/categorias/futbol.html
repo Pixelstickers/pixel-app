@@ -202,7 +202,9 @@
       <button class="agregar" onclick="agregarAlPedido('FU-00027')">Agregar al pedido</button>
     </div>
   </section>
-  <button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
+  <!-- Botón y panel del carrito cargados dinámicamente -->
+  <div id="contenedor-carrito"></div>
+  <!-- <button id="carritoBtn" onclick="togglePedido()">🛍️ Pedido (0)</button>
   <div id="panelPedido">
     <h3>Tu pedido</h3>
     <p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online.</p>
@@ -212,12 +214,21 @@
     <a class="btn-contacto" href="https://wa.me/5493764297950" target="_blank">Enviar por WhatsApp</a>
     <a class="btn-contacto" href="https://www.instagram.com/pixel.stickerss" target="_blank">Enviar por Instagram</a>
     <a class="btn-contacto" href="https://pixelstickers.empretienda.com.ar/" target="_blank">Ir a la Tienda Online</a>
-  </div>
+  </div> -->
   <footer>
     <p>© 2025 Pixel Stickers | @pixel.stickerss</p>
   </footer>
 
   <script src="../js/funciones.js"></script>
+  <script>
+    // Cargar dinámicamente el carrito desde carrito.html
+    fetch('../carrito.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('contenedor-carrito').innerHTML = html;
+        guardarYActualizar(); // llama a la función del carrito una vez que se insertó
+      });
+  </script>
 </body>
 
 </html>

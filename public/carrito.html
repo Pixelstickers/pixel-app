@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrito de Pedido | Pixel</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Pixel</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="https://pixelstickers.empretienda.com.ar/">Tienda Online</a>
+      <a href="nosotros.html">Nosotros</a>
+    </nav>
+  </header>
+
+  <main style="padding: 40px 20px;">
+    <h2>Revisá tu pedido</h2>
+    <p>Copiá los códigos y envialos por WhatsApp, Instagram o cuando hagas tu compra en la Tienda Online.</p>
+
+    <textarea id="listaPedido" readonly style="width: 100%; height: 120px; font-size: 14px;"></textarea>
+
+    <div style="margin: 20px 0;">
+      <button onclick="copiarPedido()">Copiar</button>
+      <button onclick="borrarPedido()">Borrar todo</button>
+    </div>
+
+    <a class="btn-contacto" href="https://wa.me/5493764297950" target="_blank">Enviar por WhatsApp</a>
+    <a class="btn-contacto" href="https://www.instagram.com/pixel.stickerss" target="_blank">Enviar por Instagram</a>
+    <a class="btn-contacto" href="https://pixelstickers.empretienda.com.ar/" target="_blank">Ir a la Tienda Online</a>
+  </main>
+
+  <footer>
+    <p>© 2025 Pixel Stickers | @pixel.stickerss</p>
+  </footer>
+
+  <script src="js/funciones.js"></script>
+</body>
+</html>
